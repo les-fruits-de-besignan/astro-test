@@ -5,40 +5,200 @@ import background from '../assets/background.svg';
 
 <div id="container">
 	<img id="background" src={background.src} alt="" fetchpriority="high" />
+	
+	<!-- Navigation -->
+	<nav class="navbar">
+		<div class="nav-container">
+			<div class="nav-logo">🍊 Les fruits de Bésignan</div>
+			<div class="nav-links">
+				<a href="#produits">Nos Produits</a>
+				<a href="#avantages">Avantages</a>
+				<a href="#temoignages">Témoignages</a>
+				<a href="#contact" class="cta-button">Commander</a>
+			</div>
+		</div>
+	</nav>
+
 	<main>
+		<!-- Hero Section -->
 		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
+			<div class="hero-content">
+				<h1>Les fruits de Bésignan</h1>
+				<h2>Découvrez nos fruits ensoleillés et les plantes à parfum issus de
+					nos vergers nichés en plein coeur du parc naturel des Baronnies
+					provençales
+				</h2>
+				<div class="hero-buttons">
+					<a href="#produits" class="primary-button">Découvrir nos produits</a>
+					<a href="#contact" class="secondary-button">Commander maintenant</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Products Section -->
+		<section id="produits" class="section">
+			<div class="container">
+				<h2 class="section-title">Nos Produits d'Exception</h2>
+				<div class="products-grid">
+					<div class="product-card">
+						<div class="product-icon">🍊</div>
+						<h3>Oranges de Provence</h3>
+						<p>Oranges juteuses et sucrées, récoltées à maturité optimale dans nos vergers ensoleillés.</p>
+						<div class="price">À partir de 8€/kg</div>
+					</div>
+					<div class="product-card">
+						<div class="product-icon">🍋</div>
+						<h3>Citrons Bio</h3>
+						<p>Citrons parfumés et riches en vitamine C, cultivés sans pesticides dans le respect de la nature.</p>
+						<div class="price">À partir de 6€/kg</div>
+					</div>
+					<div class="product-card">
+						<div class="product-icon">🌿</div>
+						<h3>Plantes à Parfum</h3>
+						<p>Lavande, thym et romarin sauvages, récoltés dans les collines des Baronnies provençales.</p>
+						<div class="price">À partir de 12€/botte</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Benefits Section -->
+		<section id="avantages" class="section bg-light">
+			<div class="container">
+				<h2 class="section-title">Pourquoi Choisir Nos Fruits ?</h2>
+				<div class="benefits-grid">
+					<div class="benefit-item">
+						<div class="benefit-icon">🌱</div>
+						<h3>100% Bio</h3>
+						<p>Cultivés sans pesticides ni engrais chimiques, dans le respect de l'environnement.</p>
+					</div>
+					<div class="benefit-item">
+						<div class="benefit-icon">🌞</div>
+						<h3>Ensoleillés</h3>
+						<p>Bénéficiant du climat méditerranéen et de 300 jours de soleil par an.</p>
+					</div>
+					<div class="benefit-item">
+						<div class="benefit-icon">🚚</div>
+						<h3>Livraison Rapide</h3>
+						<p>Livraison à domicile en 24-48h dans toute la région Provence-Alpes-Côte d'Azur.</p>
+					</div>
+					<div class="benefit-item">
+						<div class="benefit-icon">👨‍🌾</div>
+						<h3>Producteurs Locaux</h3>
+						<p>Issus de notre propre exploitation familiale, garantissant fraîcheur et traçabilité.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials Section -->
+		<section id="temoignages" class="section">
+			<div class="container">
+				<h2 class="section-title">Ce que disent nos clients</h2>
+				<div class="testimonials-grid">
+					<div class="testimonial-card">
+						<div class="stars">⭐⭐⭐⭐⭐</div>
+						<p>"Les oranges sont exceptionnelles ! Juteuses et parfumées, un vrai régal. Je recommande vivement !"</p>
+						<div class="testimonial-author">- Marie L., Marseille</div>
+					</div>
+					<div class="testimonial-card">
+						<div class="stars">⭐⭐⭐⭐⭐</div>
+						<p>"Service impeccable et fruits délicieux. La livraison est rapide et les produits sont d'une fraîcheur remarquable."</p>
+						<div class="testimonial-author">- Pierre D., Avignon</div>
+					</div>
+					<div class="testimonial-card">
+						<div class="stars">⭐⭐⭐⭐⭐</div>
+						<p>"Enfin des fruits bio de qualité ! Les plantes à parfum embaument toute la maison. Un vrai bonheur !"</p>
+						<div class="testimonial-author">- Sophie M., Nice</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Pricing Section -->
+		<section id="tarifs" class="section bg-light">
+			<div class="container">
+				<h2 class="section-title">Nos Formules</h2>
+				<div class="pricing-grid">
+					<div class="pricing-card">
+						<h3>Découverte</h3>
+						<div class="price">25€</div>
+						<ul>
+							<li>2kg d'oranges</li>
+							<li>1kg de citrons</li>
+							<li>1 botte de lavande</li>
+							<li>Livraison gratuite</li>
+						</ul>
+						<a href="#contact" class="pricing-button">Commander</a>
+					</div>
+					<div class="pricing-card featured">
+						<div class="popular">Populaire</div>
+						<h3>Famille</h3>
+						<div class="price">45€</div>
+						<ul>
+							<li>4kg d'oranges</li>
+							<li>2kg de citrons</li>
+							<li>2 bottes de plantes à parfum</li>
+							<li>Livraison gratuite</li>
+							<li>10% de réduction</li>
+						</ul>
+						<a href="#contact" class="pricing-button">Commander</a>
+					</div>
+					<div class="pricing-card">
+						<h3>Gastronomie</h3>
+						<div class="price">80€</div>
+						<ul>
+							<li>6kg d'oranges</li>
+							<li>3kg de citrons</li>
+							<li>3 bottes de plantes à parfum</li>
+							<li>Livraison gratuite</li>
+							<li>15% de réduction</li>
+							<li>Recettes incluses</li>
+						</ul>
+						<a href="#contact" class="pricing-button">Commander</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="section">
+			<div class="container">
+				<h2 class="section-title">Commandez Maintenant</h2>
+				<div class="contact-content">
+					<div class="contact-info">
+						<h3>Contactez-nous</h3>
+						<p>📞 04 92 65 XX XX</p>
+						<p>📧 contact@fruits-besignan.fr</p>
+						<p>📍 Bésignan, 26110, Drôme</p>
+						<div class="social-links">
+							<a href="#" class="social-link">Facebook</a>
+							<a href="#" class="social-link">Instagram</a>
+						</div>
+					</div>
+					<form class="contact-form">
+						<input type="text" placeholder="Votre nom" required>
+						<input type="email" placeholder="Votre email" required>
+						<input type="tel" placeholder="Votre téléphone">
+						<select required>
+							<option value="">Choisissez votre formule</option>
+							<option value="decouverte">Découverte - 25€</option>
+							<option value="famille">Famille - 45€</option>
+							<option value="gastronomie">Gastronomie - 80€</option>
+						</select>
+						<textarea placeholder="Votre message (optionnel)"></textarea>
+						<button type="submit" class="submit-button">Envoyer ma commande</button>
+					</form>
+				</div>
+			</div>
 		</section>
 	</main>
 
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
+	<footer class="footer">
+		<div class="container">
+			<p>&copy; 2024 Les fruits de Bésignan. Tous droits réservés.</p>
+		</div>
+	</footer>
 </div>
 
 <style>
@@ -54,157 +214,454 @@ import background from '../assets/background.svg';
 
 	#container {
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
+		min-height: 100vh;
 	}
 
-	main {
-		height: 100%;
+	/* Navigation */
+	.navbar {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		background: rgba(255, 255, 255, 0.95);
+		backdrop-filter: blur(10px);
+		z-index: 1000;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	}
+
+	.nav-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 1rem 2rem;
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
+		align-items: center;
 	}
 
+	.nav-logo {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: #2d3748;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.nav-links a {
+		text-decoration: none;
+		color: #4a5568;
+		transition: color 0.3s;
+	}
+
+	.nav-links a:hover {
+		color: #2d3748;
+	}
+
+	.cta-button {
+		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		color: white !important;
+		padding: 0.5rem 1rem;
+		border-radius: 8px;
+		transition: transform 0.3s;
+	}
+
+	.cta-button:hover {
+		transform: translateY(-2px);
+	}
+
+	/* Hero Section */
 	#hero {
+		padding: 8rem 2rem 4rem;
+		text-align: center;
+		background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+		min-height: 100vh;
 		display: flex;
-		align-items: start;
-		flex-direction: column;
+		align-items: center;
 		justify-content: center;
-		padding: 16px;
+	}
+
+	.hero-content {
+		max-width: 800px;
 	}
 
 	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
-
-	#links {
-		display: flex;
-		gap: 16px;
-	}
-
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
-
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
-
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
-
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
-
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
+		font-size: 3.5rem;
+		margin-bottom: 1rem;
+		color: #2d3748;
+		font-weight: bold;
 	}
 
 	h2 {
-		margin: 0 0 1em;
+		font-size: 1.5rem;
+		margin-bottom: 2rem;
+		color: #4a5568;
+		line-height: 1.6;
 		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
 	}
 
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
 	}
 
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
+	.primary-button, .secondary-button {
+		padding: 1rem 2rem;
+		border-radius: 10px;
 		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
+		font-weight: 600;
+		transition: all 0.3s;
+		display: inline-block;
 	}
 
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
+	.primary-button {
+		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		color: white;
+		box-shadow: 0 4px 15px rgba(50, 69, 255, 0.3);
 	}
 
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
+	.primary-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(50, 69, 255, 0.4);
 	}
 
+	.secondary-button {
+		background: white;
+		color: #2d3748;
+		border: 2px solid #e2e8f0;
+	}
+
+	.secondary-button:hover {
+		background: #f7fafc;
+		transform: translateY(-2px);
+	}
+
+	/* Sections */
+	.section {
+		padding: 5rem 2rem;
+	}
+
+	.bg-light {
+		background: rgba(247, 250, 252, 0.8);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 3rem;
+		color: #2d3748;
+		font-weight: bold;
+	}
+
+	/* Products Grid */
+	.products-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.product-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 16px;
+		text-align: center;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s;
+	}
+
+	.product-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.product-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.product-card h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: #2d3748;
+	}
+
+	.product-card p {
+		color: #4a5568;
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	.price {
+		font-size: 1.25rem;
+		font-weight: bold;
+		color: #3245ff;
+	}
+
+	/* Benefits Grid */
+	.benefits-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.benefit-item {
+		text-align: center;
+		padding: 2rem;
+	}
+
+	.benefit-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.benefit-item h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: #2d3748;
+	}
+
+	.benefit-item p {
+		color: #4a5568;
+		line-height: 1.6;
+	}
+
+	/* Testimonials */
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.testimonial-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 16px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.stars {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+	}
+
+	.testimonial-card p {
+		font-style: italic;
+		color: #4a5568;
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	.testimonial-author {
+		font-weight: bold;
+		color: #2d3748;
+	}
+
+	/* Pricing */
+	.pricing-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.pricing-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 16px;
+		text-align: center;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		position: relative;
+		transition: transform 0.3s;
+	}
+
+	.pricing-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.pricing-card.featured {
+		border: 2px solid #3245ff;
+		transform: scale(1.05);
+	}
+
+	.popular {
+		position: absolute;
+		top: -12px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #3245ff;
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 20px;
+		font-size: 0.875rem;
+		font-weight: bold;
+	}
+
+	.pricing-card h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: #2d3748;
+	}
+
+	.pricing-card .price {
+		font-size: 2.5rem;
+		font-weight: bold;
+		color: #3245ff;
+		margin-bottom: 1.5rem;
+	}
+
+	.pricing-card ul {
+		list-style: none;
+		padding: 0;
+		margin-bottom: 2rem;
+	}
+
+	.pricing-card li {
+		padding: 0.5rem 0;
+		color: #4a5568;
+		border-bottom: 1px solid #e2e8f0;
+	}
+
+	.pricing-card li:last-child {
+		border-bottom: none;
+	}
+
+	.pricing-button {
+		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 10px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: transform 0.3s;
+		display: inline-block;
+	}
+
+	.pricing-button:hover {
+		transform: translateY(-2px);
+	}
+
+	/* Contact */
+	.contact-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.contact-info h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+		color: #2d3748;
+	}
+
+	.contact-info p {
+		margin-bottom: 1rem;
+		color: #4a5568;
+		font-size: 1.1rem;
+	}
+
+	.social-links {
+		margin-top: 2rem;
+	}
+
+	.social-link {
+		display: inline-block;
+		margin-right: 1rem;
+		color: #3245ff;
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.contact-form input,
+	.contact-form select,
+	.contact-form textarea {
+		padding: 1rem;
+		border: 2px solid #e2e8f0;
+		border-radius: 8px;
+		font-size: 1rem;
+		transition: border-color 0.3s;
+	}
+
+	.contact-form input:focus,
+	.contact-form select:focus,
+	.contact-form textarea:focus {
+		outline: none;
+		border-color: #3245ff;
+	}
+
+	.contact-form textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.submit-button {
+		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		color: white;
+		padding: 1rem 2rem;
+		border: none;
+		border-radius: 10px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: transform 0.3s;
+	}
+
+	.submit-button:hover {
+		transform: translateY(-2px);
+	}
+
+	/* Footer */
+	.footer {
+		background: #2d3748;
+		color: white;
+		text-align: center;
+		padding: 2rem;
+	}
+
+	/* Responsive */
 	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
+		.nav-container {
 			flex-direction: column;
+			gap: 1rem;
 		}
 
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
+		.nav-links {
 			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
+			justify-content: center;
 		}
 
 		h1 {
-			line-height: 1.5;
+			font-size: 2.5rem;
+		}
+
+		h2 {
+			font-size: 1.25rem;
+		}
+
+		.hero-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.contact-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.pricing-card.featured {
+			transform: none;
 		}
 	}
 </style>
