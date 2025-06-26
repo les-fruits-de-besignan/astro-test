@@ -9,7 +9,7 @@ import background from '../assets/background.svg';
 	<!-- Navigation -->
 	<nav class="navbar">
 		<div class="nav-container">
-			<div class="nav-logo">🍊 Les fruits de Bésignan</div>
+			<div class="nav-logo">Les fruits de Bésignan</div>
 			<div class="nav-links">
 				<a href="#produits">Nos Produits</a>
 				<a href="#avantages">Avantages</a>
@@ -42,20 +42,42 @@ import background from '../assets/background.svg';
 				<div class="products-grid">
 					<div class="product-card">
 						<div class="product-icon">🍊</div>
-						<h3>Oranges de Provence</h3>
-						<p>Oranges juteuses et sucrées, récoltées à maturité optimale dans nos vergers ensoleillés.</p>
+						<h3>Amandes et Amandons</h3>
+						<p>En coques ou en sachet de 500g d'amandons</p>
 						<div class="price">À partir de 8€/kg</div>
 					</div>
 					<div class="product-card">
 						<div class="product-icon">🍋</div>
-						<h3>Citrons Bio</h3>
+						<h3>Confitures et Sirops</h3>
+						<p>Des saveurs fruités pour prolonger celles de l'été</p>
+						<div class="price">À partir de 6€/kg</div>
+					</div>
+					<div class="product-card">
+						<div class="product-icon">🌿</div>
+						<h3>Jus et nectars</h3>
+						<p>Lavande, thym et romarin sauvages, récoltés dans les collines des Baronnies provençales.</p>
+						<div class="price">À partir de 12€/botte</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="products-grid">
+					<div class="product-card">
+						<div class="product-icon">🍊</div>
+						<h3>Fruits de saison</h3>
+						<p>Récoltées à maturité optimale dans nos vergers ensoleillés.</p>
+						<div class="price">À partir de 8€/kg</div>
+					</div>
+					<div class="product-card">
+						<div class="product-icon">🍋</div>
+						<h3>Moutardes et pesto</h3>
 						<p>Citrons parfumés et riches en vitamine C, cultivés sans pesticides dans le respect de la nature.</p>
 						<div class="price">À partir de 6€/kg</div>
 					</div>
 					<div class="product-card">
 						<div class="product-icon">🌿</div>
-						<h3>Plantes à Parfum</h3>
-						<p>Lavande, thym et romarin sauvages, récoltés dans les collines des Baronnies provençales.</p>
+						<h3>Herbes de Provence</h3>
+						<p>Thym, romarin, sariettes issues de la cueillette sauvage, ou récoltés dans les collines des Baronnies provençales.</p>
 						<div class="price">À partir de 12€/botte</div>
 					</div>
 				</div>
@@ -117,43 +139,28 @@ import background from '../assets/background.svg';
 
 		<!-- Pricing Section -->
 		<section id="tarifs" class="section bg-light">
-			<div class="container">
-				<h2 class="section-title">Nos Formules</h2>
+			<div class="container-with-bg">
+				<h2 class="section-title">Nos lieux de vente</h2>
 				<div class="pricing-grid">
 					<div class="pricing-card">
-						<h3>Découverte</h3>
+						<h3>À la ferme</h3>
 						<div class="price">25€</div>
 						<ul>
-							<li>2kg d'oranges</li>
-							<li>1kg de citrons</li>
-							<li>1 botte de lavande</li>
-							<li>Livraison gratuite</li>
-						</ul>
-						<a href="#contact" class="pricing-button">Commander</a>
-					</div>
-					<div class="pricing-card featured">
-						<div class="popular">Populaire</div>
-						<h3>Famille</h3>
-						<div class="price">45€</div>
-						<ul>
-							<li>4kg d'oranges</li>
-							<li>2kg de citrons</li>
-							<li>2 bottes de plantes à parfum</li>
-							<li>Livraison gratuite</li>
-							<li>10% de réduction</li>
+							<li>Toute l'année</li>
+							<li>contactez-nous si possible avant nous sommes jamais très loin</li>
+							
 						</ul>
 						<a href="#contact" class="pricing-button">Commander</a>
 					</div>
 					<div class="pricing-card">
-						<h3>Gastronomie</h3>
-						<div class="price">80€</div>
+						<div class="popular"></div>
+						<h3>Sur les marchés</h3>
+						<div class="price">45€</div>
 						<ul>
-							<li>6kg d'oranges</li>
-							<li>3kg de citrons</li>
-							<li>3 bottes de plantes à parfum</li>
-							<li>Livraison gratuite</li>
-							<li>15% de réduction</li>
-							<li>Recettes incluses</li>
+							<li>Serres (05) - samedi matin</li>
+							<li>De mars à décembre</li>
+							<li>Séderon (26) - dimanche matin</li>
+							<li>De juin à août</li>
 						</ul>
 						<a href="#contact" class="pricing-button">Commander</a>
 					</div>
@@ -196,7 +203,7 @@ import background from '../assets/background.svg';
 
 	<footer class="footer">
 		<div class="container">
-			<p>&copy; 2024 Les fruits de Bésignan. Tous droits réservés.</p>
+			<p>&copy; {new Date().getFullYear()} Les fruits de Bésignan. Tous droits réservés.</p>
 		</div>
 	</footer>
 </div>
@@ -215,6 +222,11 @@ import background from '../assets/background.svg';
 	#container {
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		min-height: 100vh;
+	}
+	#container-with-bg {
+		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+		min-height: 100vh;
+		background: linear-gradient(135deg, #ffffff 0%, #e6f7f6 60%, #007C76 100%);
 	}
 
 	/* Navigation */
@@ -240,7 +252,7 @@ import background from '../assets/background.svg';
 	.nav-logo {
 		font-size: 1.5rem;
 		font-weight: bold;
-		color: #2d3748;
+		color: #007C76;
 	}
 
 	.nav-links {
@@ -251,35 +263,43 @@ import background from '../assets/background.svg';
 
 	.nav-links a {
 		text-decoration: none;
-		color: #4a5568;
+		color: #007C76;
 		transition: color 0.3s;
 	}
 
 	.nav-links a:hover {
-		color: #2d3748;
+		color: white;
 	}
 
 	.cta-button {
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		background: linear-gradient(83.21deg, #007C76 0%, #2b9055 100%);
 		color: white !important;
 		padding: 0.5rem 1rem;
 		border-radius: 8px;
-		transition: transform 0.3s;
+		transition: transform 0.3s, background 0.3s;
+		border: none;
+		outline: none;
+		font-weight: 600;
 	}
 
 	.cta-button:hover {
 		transform: translateY(-2px);
+		background: #2b9055;
+		color: white !important;
 	}
 
 	/* Hero Section */
+	/*background: linear-gradient(135deg, #ffffff 0%, #e6f7f6 60%, #007C76 100%);*/
 	#hero {
 		padding: 8rem 2rem 4rem;
 		text-align: center;
-		background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
 		min-height: 100vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://res.cloudinary.com/duksfvujv/image/upload/v1693737378/lavndes_bho1kh.jpg);
+		background-position: center;
+  		background-size: cover;
 	}
 
 	.hero-content {
@@ -289,14 +309,14 @@ import background from '../assets/background.svg';
 	h1 {
 		font-size: 3.5rem;
 		margin-bottom: 1rem;
-		color: #2d3748;
+		color: #F9F9F8;
 		font-weight: bold;
 	}
 
 	h2 {
 		font-size: 1.5rem;
 		margin-bottom: 2rem;
-		color: #4a5568;
+		color: #F9F9F8;
 		line-height: 1.6;
 		font-weight: normal;
 	}
@@ -308,44 +328,54 @@ import background from '../assets/background.svg';
 		flex-wrap: wrap;
 	}
 
-	.primary-button, .secondary-button {
+	.primary-button, .secondary-button, .pricing-button, .submit-button {
 		padding: 1rem 2rem;
 		border-radius: 10px;
 		text-decoration: none;
 		font-weight: 600;
 		transition: all 0.3s;
 		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 1rem;
 	}
 
-	.primary-button {
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+	.primary-button, .pricing-button, .submit-button {
+		background: linear-gradient(83.21deg, #007C76 0%, #2b9055 100%);
 		color: white;
-		box-shadow: 0 4px 15px rgba(50, 69, 255, 0.3);
+		box-shadow: 0 4px 15px rgba(0, 124, 118, 0.10);
+		border: 1px solid #007C76;
 	}
 
-	.primary-button:hover {
+	.primary-button:hover, .pricing-button:hover, .submit-button:hover {
+		background: #2b9055;
+		color: white;
+		box-shadow: 0 6px 20px rgba(0, 124, 118, 0.18);
+		border-color: #2b9055;
 		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(50, 69, 255, 0.4);
 	}
 
 	.secondary-button {
 		background: white;
-		color: #2d3748;
-		border: 2px solid #e2e8f0;
+		color: #007C76;
+		border: 2px solid #007C76;
 	}
 
 	.secondary-button:hover {
 		background: #f7fafc;
+		color: #2b9055;
+		border-color: #2b9055;
 		transform: translateY(-2px);
 	}
 
 	/* Sections */
 	.section {
 		padding: 5rem 2rem;
+		background: linear-gradient(135deg, #ffffff 80%, #f2fbfa 100%);
 	}
 
 	.bg-light {
-		background: rgba(247, 250, 252, 0.8);
+		background: linear-gradient(135deg, #ffffff 60%, #e6f7f6 100%);
 	}
 
 	.container {
@@ -357,7 +387,7 @@ import background from '../assets/background.svg';
 		text-align: center;
 		font-size: 2.5rem;
 		margin-bottom: 3rem;
-		color: #2d3748;
+		color: #007C76;
 		font-weight: bold;
 	}
 
@@ -368,17 +398,19 @@ import background from '../assets/background.svg';
 		gap: 2rem;
 	}
 
-	.product-card {
+	.product-card, .pricing-card, .testimonial-card {
 		background: white;
 		padding: 2rem;
 		border-radius: 16px;
 		text-align: center;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s;
+		box-shadow: 0 4px 20px rgba(0, 124, 118, 0.07);
+		transition: transform 0.3s, border-color 0.3s;
+		border: 1.5px solid #e2e8f0;
 	}
 
-	.product-card:hover {
+	.product-card:hover, .pricing-card:hover {
 		transform: translateY(-5px);
+		border-color: #007C76;
 	}
 
 	.product-icon {
@@ -389,11 +421,11 @@ import background from '../assets/background.svg';
 	.product-card h3 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
-		color: #2d3748;
+		color: #007C76;
 	}
 
 	.product-card p {
-		color: #4a5568;
+		color: #2b9055;
 		margin-bottom: 1rem;
 		line-height: 1.6;
 	}
@@ -401,7 +433,7 @@ import background from '../assets/background.svg';
 	.price {
 		font-size: 1.25rem;
 		font-weight: bold;
-		color: #3245ff;
+		color: #007C76;
 	}
 
 	/* Benefits Grid */
@@ -424,11 +456,11 @@ import background from '../assets/background.svg';
 	.benefit-item h3 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
-		color: #2d3748;
+		color: #007C76;
 	}
 
 	.benefit-item p {
-		color: #4a5568;
+		color: #2b9055;
 		line-height: 1.6;
 	}
 
@@ -437,13 +469,6 @@ import background from '../assets/background.svg';
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		gap: 2rem;
-	}
-
-	.testimonial-card {
-		background: white;
-		padding: 2rem;
-		border-radius: 16px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	}
 
 	.stars {
@@ -460,7 +485,7 @@ import background from '../assets/background.svg';
 
 	.testimonial-author {
 		font-weight: bold;
-		color: #2d3748;
+		color: #007C76;
 	}
 
 	/* Pricing */
@@ -470,23 +495,11 @@ import background from '../assets/background.svg';
 		gap: 2rem;
 	}
 
-	.pricing-card {
-		background: white;
-		padding: 2rem;
-		border-radius: 16px;
-		text-align: center;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-		position: relative;
-		transition: transform 0.3s;
-	}
-
-	.pricing-card:hover {
-		transform: translateY(-5px);
-	}
-
 	.pricing-card.featured {
-		border: 2px solid #3245ff;
+		border: 2.5px solid #007C76;
 		transform: scale(1.05);
+		box-shadow: 0 8px 32px rgba(0, 124, 118, 0.12);
+		background: linear-gradient(135deg, #ffffff 60%, #e6f7f6 100%);
 	}
 
 	.popular {
@@ -494,24 +507,25 @@ import background from '../assets/background.svg';
 		top: -12px;
 		left: 50%;
 		transform: translateX(-50%);
-		background: #3245ff;
+		background: #007C76;
 		color: white;
 		padding: 0.5rem 1rem;
 		border-radius: 20px;
 		font-size: 0.875rem;
 		font-weight: bold;
+		box-shadow: 0 2px 8px rgba(0, 124, 118, 0.10);
 	}
 
 	.pricing-card h3 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
-		color: #2d3748;
+		color: #007C76;
 	}
 
 	.pricing-card .price {
 		font-size: 2.5rem;
 		font-weight: bold;
-		color: #3245ff;
+		color: #007C76;
 		margin-bottom: 1.5rem;
 	}
 
@@ -532,7 +546,7 @@ import background from '../assets/background.svg';
 	}
 
 	.pricing-button {
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		background: linear-gradient(83.21deg, #007C76 0%, #2b9055 100%);
 		color: white;
 		padding: 1rem 2rem;
 		border-radius: 10px;
@@ -544,6 +558,7 @@ import background from '../assets/background.svg';
 
 	.pricing-button:hover {
 		transform: translateY(-2px);
+		background: #0c727f;
 	}
 
 	/* Contact */
@@ -557,12 +572,12 @@ import background from '../assets/background.svg';
 	.contact-info h3 {
 		font-size: 1.5rem;
 		margin-bottom: 1.5rem;
-		color: #2d3748;
+		color: #007C76;
 	}
 
 	.contact-info p {
 		margin-bottom: 1rem;
-		color: #4a5568;
+		color: #0c727f;
 		font-size: 1.1rem;
 	}
 
@@ -573,7 +588,7 @@ import background from '../assets/background.svg';
 	.social-link {
 		display: inline-block;
 		margin-right: 1rem;
-		color: #3245ff;
+		color: #007C76;
 		text-decoration: none;
 		font-weight: 600;
 	}
@@ -598,7 +613,7 @@ import background from '../assets/background.svg';
 	.contact-form select:focus,
 	.contact-form textarea:focus {
 		outline: none;
-		border-color: #3245ff;
+		border-color: #007C76;
 	}
 
 	.contact-form textarea {
@@ -607,7 +622,7 @@ import background from '../assets/background.svg';
 	}
 
 	.submit-button {
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		background: linear-gradient(83.21deg, #007C76 0%, #0c727f 100%);
 		color: white;
 		padding: 1rem 2rem;
 		border: none;
@@ -620,11 +635,12 @@ import background from '../assets/background.svg';
 
 	.submit-button:hover {
 		transform: translateY(-2px);
+		background: whitesmoke;
 	}
 
 	/* Footer */
 	.footer {
-		background: #2d3748;
+		background: #007C76;
 		color: white;
 		text-align: center;
 		padding: 2rem;
