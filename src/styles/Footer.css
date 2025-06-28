@@ -1,0 +1,7 @@
+/* Footer Styles */
+.footer {
+	background: var(--color-primary);
+	color: var(--color-white);
+	text-align: center;
+	padding: 2rem;
+} 

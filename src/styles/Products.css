@@ -1,0 +1,48 @@
+/* Products Section Styles */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Add space between the two product rows */
+.products-grid:first-of-type {
+  margin-bottom: 4rem;
+}
+
+.product-card {
+  overflow: hidden;
+  padding: 0;
+  border-radius: 16px;
+}
+
+.product-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.product-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  box-shadow: none;
+  background: var(--color-primary-lighter);
+  border-radius: 0;
+}
+
+.product-card h3 {
+  color: var(--color-primary);
+  margin-top: 1.25rem;
+}
+
+.product-card p {
+  color: var(--color-primary-light);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.price {
+  color: var(--color-primary);
+}
