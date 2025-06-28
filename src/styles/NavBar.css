@@ -33,11 +33,12 @@
 
 .nav-links a {
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, text-decoration 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:not(.cta-button):hover {
   color: var(--color-primary-hover);
+  text-decoration: underline;
 }
 
 .cta-button {

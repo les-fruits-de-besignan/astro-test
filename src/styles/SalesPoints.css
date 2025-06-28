@@ -1,0 +1,82 @@
+/* Sales Points Section Styles */
+.section {
+  padding: 4rem 0;
+  background: var(--color-white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+.sales-points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.sales-point-card {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--color-shadow-secondary);
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.sales-point-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 32px var(--color-shadow-primary);
+  border-color: var(--color-primary);
+}
+
+.sales-point-card p {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.sales-point-detail {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.sales-point-detail:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sales-points-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .sales-point-card {
+    padding: 1.5rem;
+  }
+} 
