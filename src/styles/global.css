@@ -55,6 +55,16 @@ body, p, .body-text, h1, h2, h3, .section-title, .card-title, .button, .primary-
 	letter-spacing: -0.01em;
 }
 
+/* Global Link Styles */
+a {
+	color: var(--color-primary);
+	transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+	color: var(--color-primary-hover);
+}
+
 /* Global Styles */
 h1, .hero-title {
 	font-size: 3.5rem;
