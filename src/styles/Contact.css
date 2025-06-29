@@ -76,3 +76,18 @@
   transform: translateY(-2px);
   background: var(--color-primary-hover);
 }
+
+/* Mobile centering */
+@media screen and (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+    text-align: center;
+  }
+  
+  .contact-form {
+    width: 100%;
+    max-width: 400px;
+  }
+}

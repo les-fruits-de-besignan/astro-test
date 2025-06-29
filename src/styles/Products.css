@@ -46,3 +46,13 @@
 .price {
   color: var(--color-primary);
 }
+
+/* Mobile centering */
+@media screen and (max-width: 768px) {
+  .products-grid {
+    justify-items: center;
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
