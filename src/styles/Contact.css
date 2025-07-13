@@ -77,17 +77,36 @@
   background: var(--color-primary-hover);
 }
 
-/* Mobile centering */
+/* Mobile centering and uniform width */
 @media screen and (max-width: 768px) {
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
     justify-items: center;
     text-align: center;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .contact-form {
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea,
+  .contact-form button,
+  .contact-form .submit-button {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
