@@ -23,12 +23,18 @@ import '../styles/Contact.css';
         <input type="email" placeholder="Votre email" required>
         <input type="tel" placeholder="Votre téléphone">
         <select required>
-          <option value="">Choisissez votre formule</option>
-          <option value="decouverte">Fruits frais: à déguster ou confiture</option>
-          <option value="famille">Produits</option>
-          <option value="gastronomie">Venir à la ferme</option>
+          <option value="">Livraison</option>
+          <option value="ferme">Venir à la ferme</option>
+          <option value="livraison">Livraison à domicile</option>
+          <option value="marché">Récupération sur les marchés</option>
         </select>
-        <textarea placeholder="Votre message (optionnel)"></textarea>
+        <select required>
+          <option value="">Choisissez votre formule</option>
+          <option value="fruits">Fruits frais: à déguster ou confiture</option>
+          <option value="produits">Produits</option>
+          <option value="fruitsProduits">Fruits et produits</option>
+        </select>
+        <textarea placeholder="Votre demande"></textarea>
         <button type="submit" class="submit-button">Envoyer ma commande</button>
         <input type="hidden" name="form-name" value="contact-form" />
       </form>
