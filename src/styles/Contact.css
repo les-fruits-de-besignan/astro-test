@@ -36,6 +36,36 @@
   gap: 1rem;
 }
 
+.multi-choice-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.multi-choice-label {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.multi-choice-group label {
+  font-size: 1rem;
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.multi-choice-group input[type="checkbox"] {
+  accent-color: var(--color-primary);
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.5em;
+}
+
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -108,5 +138,13 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+  }
+  .multi-choice-group {
+    align-items: center;
+    width: 100%;
+  }
+  .multi-choice-group label {
+    width: 100%;
+    justify-content: center;
   }
 }
