@@ -20,50 +20,38 @@ import '../styles/Contact.css';
       </div>
       <div class="feedback-form">
         <form
-  class="contact-form"
-    data-netlify="true"
-    netlify-honeypot
-    name="feedback"
-    method="POST"
-    action="/success"
-  >
-    <p class="hidden">
-      <label>
-        Don’t fill this out if you’re human: <input name="bot-field" />
-      </label>
-    </p>
-    <input type="hidden" name="form-name" value="feedback" />
-    <label for="name">Name</label>
-    <input id="name" type="text" name="name" />
-    <label for="email">Email</label>
-    <input id="email" type="email" name="email" required />
-    <label for="feedback">Quel es</label>
-    <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
-    <button type="submit">Envoyer ma commande</button>
-        </form>
-      </div>
-      <!-- <form class="contact-form" data-netlify="true">
-        <input type="text" placeholder="Votre nom" required>
-        <input type="email" placeholder="Votre email" required>
-        <input type="tel" placeholder="Votre téléphone">
-        <select required>
-          <option value="">Livraison</option>
-          <option value="ferme">Venir à la ferme</option>
-          <option value="livraison">Livraison à domicile</option>
-          <option value="marché">Récupération sur les marchés</option>
-        </select>
+          class="contact-form"
+          data-netlify="true"
+          netlify-honeypot
+          name="feedback"
+          method="POST"
+          action="/success"
+        >
+          <label for="name">Votre nom</label>
+          <input id="name" type="text" name="name" />
+          <label for="email">Votre email</label>
+          <input id="email" type="email" name="email" required/>
+          <input type="tel" placeholder="Votre téléphone"> 
+          <select required>
+            <option value="">Livraison</option>
+            <option value="ferme">Venir à la ferme</option>
+            <option value="livraison">Livraison à domicile</optio>
+            <option value="marché">Récupération sur les marchés</option>
+          </select>
         <div class="multi-choice-group">
           <label><input type="checkbox" name="products[]" value="Fruits frais: à déguster ou confiture"> Fruits frais: à déguster ou confiture</label>
           <label><input type="checkbox" name="products[]" value="Jus, nectars, sirops">Jus, nectars et sirops</label>
           <label><input type="checkbox" name="products[]" value="Autres"> Moutarde, pesto, confitures, herbes aromatiques</label>
         </div>
-        <textarea placeholder="Votre demande"></textarea>
-        <div class="multi-choice-group">
-          <label><input type="checkbox" name="rgpd[]" value="rgpd">J'autorise et j'accepte que mes coordonnées soient utilisés pour être recontacter</label>
-        </div>
-        <button type="submit" class="submit-button">Envoyer ma commande</button>
-        <input type="hidden" name="form-name" value="contact-form" />
-      </form> -->
+        <label for="feedback">Votre demande</label>
+        <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
+          <div class="multi-choice-group">
+            <label><input type="checkbox" name="rgpd[]" value="rgpd">J'autorise et j'accepte que mes coordonnées soient utilisés pour être recontacter</label>
+          </div>
+          <button type="submit">Envoyer ma commande</button>
+        </form>
+      </div>
+      </form> 
     </div>
   </div>
 </section> 
