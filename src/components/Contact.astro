@@ -18,7 +18,31 @@ import '../styles/Contact.css';
           </a>
         </div>
       </div>
-      <form class="contact-form" data-netlify="true">
+      <div class="feedback-form">
+        <form
+  class="contact-form"
+    data-netlify="true"
+    netlify-honeypot
+    name="feedback"
+    method="POST"
+    action="/success"
+  >
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
+    <input type="hidden" name="form-name" value="feedback" />
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" />
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" required />
+    <label for="feedback">Quel es</label>
+    <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
+    <button type="submit">Envoyer ma commande</button>
+        </form>
+      </div>
+      <!-- <form class="contact-form" data-netlify="true">
         <input type="text" placeholder="Votre nom" required>
         <input type="email" placeholder="Votre email" required>
         <input type="tel" placeholder="Votre téléphone">
@@ -39,7 +63,7 @@ import '../styles/Contact.css';
         </div>
         <button type="submit" class="submit-button">Envoyer ma commande</button>
         <input type="hidden" name="form-name" value="contact-form" />
-      </form>
+      </form> -->
     </div>
   </div>
 </section> 
