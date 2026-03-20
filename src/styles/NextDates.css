@@ -1,0 +1,73 @@
+/* Next Dates Section Styles */
+
+.nextDates {
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.nextDates .section-title {
+  color: var(--color-white);
+}
+
+.next-dates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.next-dates-item {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.next-dates-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+.next-dates-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.next-dates-item h3 {
+  color: var(--color-white);
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+}
+
+.next-dates-period {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-primary-inverted);
+  margin: 0 0 0.4rem;
+}
+
+.next-dates-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .next-dates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .next-dates-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
