@@ -5,53 +5,94 @@ import '../styles/Contact.css';
   <div class="container">
     <h2 class="section-title">Commandez Maintenant</h2>
     <div class="contact-content">
+
       <div class="contact-info">
         <h3>Contactez-nous</h3>
-        <p>📧 gaecduvieuxchateau@gmail.com</p>
-        <p>📍 Bésignan, 26110, Drôme</p>
+        <div class="contact-info-item">
+          <span class="contact-info-icon">📧</span>
+          <a href="mailto:gaecduvieuxchateau@gmail.com">gaecduvieuxchateau@gmail.com</a>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-icon">📍</span>
+          <span>Bésignan, 26110, Drôme</span>
+        </div>
         <div class="social-links">
           <a href="https://www.instagram.com/les_fruits_de_besignan_/" class="social-link" target="_blank" rel="noopener noreferrer">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
             Instagram
           </a>
         </div>
       </div>
+
       <div class="feedback-form">
         <form
           class="contact-form"
           data-netlify="true"
-          netlify-honeypot
+          netlify-honeypot="bot-field"
           name="feedback"
           method="POST"
           action="/success"
         >
-          <label for="name">Votre nom</label>
-          <input id="name" type="text" name="name" />
-          <label for="email">Votre email</label>
-          <input id="email" type="email" name="email" required/>
-          <input type="tel" placeholder="Votre téléphone"> 
-          <select required>
-            <option value="">Livraison</option>
-            <option value="ferme">Venir à la ferme</option>
-            <option value="livraison">Livraison à domicile</optio>
-            <option value="marché">Récupération sur les marchés</option>
-          </select>
-        <div class="multi-choice-group">
-          <label><input type="checkbox" name="products[]" value="Fruits frais: à déguster ou confiture"> Fruits frais: à déguster ou confiture</label>
-          <label><input type="checkbox" name="products[]" value="Jus, nectars, sirops">Jus, nectars et sirops</label>
-          <label><input type="checkbox" name="products[]" value="Autres"> Moutarde, pesto, confitures, herbes aromatiques</label>
-        </div>
-        <label for="feedback">Votre demande</label>
-        <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
-          <div class="multi-choice-group">
-            <label><input type="checkbox" name="rgpd[]" value="rgpd">J'autorise et j'accepte que mes coordonnées soient utilisés pour être recontacter</label>
+          <input type="hidden" name="bot-field" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Votre nom</label>
+              <input id="name" type="text" name="name" placeholder="Marie Dupont" />
+            </div>
+            <div class="form-group">
+              <label for="tel">Votre téléphone</label>
+              <input id="tel" type="tel" name="tel" placeholder="06 12 34 56 78" />
+            </div>
           </div>
+
+          <div class="form-group">
+            <label for="email">Votre email <span class="required">*</span></label>
+            <input id="email" type="email" name="email" placeholder="marie@exemple.fr" required />
+          </div>
+
+          <div class="form-group">
+            <label for="delivery">Mode de récupération <span class="required">*</span></label>
+            <select id="delivery" name="delivery" required>
+              <option value="" disabled selected>Choisissez une option…</option>
+              <option value="ferme">Venir à la ferme</option>
+              <option value="livraison">Livraison à domicile</option>
+              <option value="marché">Récupération sur les marchés</option>
+            </select>
+          </div>
+
+          <fieldset class="form-fieldset">
+            <legend>Produits souhaités</legend>
+            <label class="checkbox-label">
+              <input type="checkbox" name="products[]" value="Fruits frais" />
+              Fruits frais (à déguster ou confiture)
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="products[]" value="Jus, nectars, sirops" />
+              Jus, nectars et sirops
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="products[]" value="Conserves et aromates" />
+              Moutarde, pesto, confitures, herbes aromatiques
+            </label>
+          </fieldset>
+
+          <div class="form-group">
+            <label for="message">Votre demande <span class="required">*</span></label>
+            <textarea id="message" name="message" placeholder="Décrivez votre commande : produits, quantités, dates souhaitées…" required></textarea>
+          </div>
+
+          <label class="checkbox-label rgpd-label">
+            <input type="checkbox" name="rgpd" value="rgpd" required />
+            J'accepte que mes coordonnées soient utilisées pour être recontacté(e) <span class="required">*</span>
+          </label>
+
           <button type="submit" class="submit-button">Envoyer ma commande</button>
         </form>
       </div>
-      </form> 
+
     </div>
   </div>
-</section> 
+</section>
