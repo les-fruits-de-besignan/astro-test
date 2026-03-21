@@ -1,3 +1,22 @@
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* Navigation Styles */
 .navbar {
   position: fixed;
@@ -23,6 +42,13 @@
   font-weight: bold;
   font-family: "NotoSans-Regular";
   color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav-logo:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .nav-links {
@@ -41,6 +67,12 @@
   text-decoration: underline;
 }
 
+.nav-links a:not(.cta-button):focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .cta-button {
   background: linear-gradient(
     83.21deg,
@@ -52,8 +84,12 @@
   border-radius: 8px;
   transition: transform 0.3s, background 0.3s;
   border: none;
-  outline: none;
   font-weight: 600;
+}
+
+.cta-button:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 3px;
 }
 
 .cta-button:hover {

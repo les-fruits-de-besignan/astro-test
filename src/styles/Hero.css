@@ -20,10 +20,12 @@
   color: var(--color-white);
 }
 
-#hero h2 {
+.hero-subtitle {
   color: var(--color-white);
   line-height: 1.6;
   font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
 }
 
 .hero-buttons {

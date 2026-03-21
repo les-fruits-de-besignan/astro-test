@@ -41,7 +41,7 @@
   border-color: var(--color-primary);
 }
 
-.sales-point-card p {
+.sales-point-card h3 {
   color: var(--color-primary);
   font-size: 1.25rem;
   font-weight: 600;

@@ -55,6 +55,20 @@ body, p, .body-text, h1, h2, h3, .section-title, .card-title, .button, .primary-
 	letter-spacing: -0.01em;
 }
 
+/* Global Focus Styles */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.primary-button:focus-visible,
+.pricing-button:focus-visible,
+.submit-button:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 3px;
+}
+
 /* Global Link Styles */
 a {
 	color: var(--color-primary);
@@ -155,7 +169,6 @@ body, p, .body-text {
 	transition: all 0.3s;
 	display: inline-block;
 	border: none;
-	outline: none;
 }
 
 .primary-button, .pricing-button, .submit-button {
