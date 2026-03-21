@@ -1,25 +1,106 @@
+---
+// ⚠️ Remplacez par votre vrai domaine avant de déployer
+const SITE_URL = 'https://www.lesfruitsdebésignan.fr';
+
+const title = 'Les Fruits de Bésignan | Fruits, confitures et aromates des Baronnies Provençales';
+const description = 'Producteurs de fruits (cerises, abricots, poires, coings), confitures, sirops, jus, amandes et herbes aromatiques. GAEC du vieux château à Bésignan, Drôme (26). Vente directe à la ferme, sur les marchés et en livraison.';
+const ogImage = 'https://res.cloudinary.com/dgkrgabdc/image/upload/v1759491963/IMG_5966_t9wfap.jpg';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Les Fruits de Bésignan — GAEC du vieux château",
+  "description": description,
+  "url": SITE_URL,
+  "email": "gaecduvieuxchateau@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bésignan",
+    "addressLocality": "Bésignan",
+    "postalCode": "26110",
+    "addressRegion": "Drôme",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 44.327,
+    "longitude": 5.335
+  },
+  "sameAs": [
+    "https://www.instagram.com/les_fruits_de_besignan_/"
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "description": "Toute l'année sur rendez-vous"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Nos produits",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Fruits de saison (cerises, abricots, poires, coings)" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Confitures et sirops artisanaux" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Jus et nectars de fruits" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Amandes et amandons" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Herbes aromatiques bio" } }
+    ]
+  }
+};
+---
 <!doctype html>
 <html lang="fr-FR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href={`data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🍒</text></svg>`} sizes="any">
-		<link rel="icon" type="image/svg+xml" href={`data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🍒</text></svg>`}/>
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Nous sommes heureux de vous accueillir au sein de notre ferme du GAEC du vieux château à Bésignan. Toute l'année nous répondrons à vos questions, et serons ravis de vous faire découvrir nos fruits, nos produits et nos plantes aromatiques"/>
-		<meta name="keywords" content="GAEC du vieux château, Bésignan, ferme, farmer, farm, fruits, amandes, almonds" />
-		<title>Les fruits de Bésignan</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO primaire -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={SITE_URL} />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp…) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={SITE_URL} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Les Fruits de Bésignan" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Vergers de la ferme Les Fruits de Bésignan dans les Baronnies Provençales" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" sizes="any" />
+
+    <!-- Google Fonts — preconnect d'abord pour éviter le render-blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Données structurées JSON-LD -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>

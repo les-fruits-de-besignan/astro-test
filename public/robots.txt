@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# ⚠️ Remplacez par votre vrai domaine avant de déployer
+Sitemap: https://www.lesfruitsdebésignan.fr/sitemap-index.xml

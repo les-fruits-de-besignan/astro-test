@@ -1,9 +1,15 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
+// ⚠️ Remplacez par votre vrai domaine avant de déployer
+const SITE_URL = 'https://www.lesfruitsdebésignan.fr';
+
 export default defineConfig({
-  integrations: [react()]
+  site: SITE_URL,
+  integrations: [
+    react(),
+    sitemap(),
+  ],
 });
