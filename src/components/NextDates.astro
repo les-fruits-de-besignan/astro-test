@@ -1,28 +1,19 @@
 ---
 import '../styles/NextDates.css';
+import { farmerMarkets } from '../data/markets';
 ---
 <section id="Next-dates" class="nextDates" aria-label="Marchés de producteurs">
   <div class="container">
     <h2 class="section-title">Marchés de producteurs</h2>
     <div class="next-dates-grid">
-      <div class="next-dates-item">
-        <div class="next-dates-icon" aria-hidden="true">📅</div>
-        <h3>Bésignan</h3>
-        <p class="next-dates-period">Juillet</p>
-        <p class="next-dates-desc">Marché de producteurs local</p>
-      </div>
-      <div class="next-dates-item">
-        <div class="next-dates-icon" aria-hidden="true">📅</div>
-        <h3>Séderon</h3>
-        <p class="next-dates-period">Tout l'été</p>
-        <p class="next-dates-desc">Marché de producteurs local</p>
-      </div>
-      <div class="next-dates-item">
-        <div class="next-dates-icon" aria-hidden="true">📅</div>
-        <h3>Serres</h3>
-        <p class="next-dates-period">21 mars – fin décembre</p>
-        <p class="next-dates-desc">Marché de producteurs local</p>
-      </div>
+      {farmerMarkets.map((market) => (
+        <div class="next-dates-item">
+          <div class="next-dates-icon" aria-hidden="true">📅</div>
+          <h3>{market.location}</h3>
+          <p class="next-dates-period">{market.period}</p>
+          <p class="next-dates-desc">{market.description}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

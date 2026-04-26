@@ -1,26 +1,19 @@
 ---
 import '../styles/SalesPoints.css';
+import { salesChannels } from '../data/markets';
 ---
 <section id="SalesPoints" class="section">
   <div class="container">
     <h2 class="section-title">Nos Points de Ventes</h2>
     <div class="sales-points-grid">
-      <div class="sales-point-card">
-        <h3>À la ferme</h3>
-        <div class="sales-point-detail">Contactez-nous si possible avant, nous sommes jamais très loin</div>
-        <div class="sales-point-detail">Ouvert toute l'année</div>
-      </div>
-      <div class="sales-point-card">
-        <h3>Marchés</h3>
-        <div class="sales-point-detail">Serres (05) de Mars à Décembre</div>
-        <div class="sales-point-detail">Séderon (26) de Juin à Août</div>
-      </div>
-      <div class="sales-point-card">
-        <h3>Foires saisonnières</h3>
-        <div class="sales-point-detail">Foire de Saoû — Novembre</div>
-        <div class="sales-point-detail">Foire de Montvendre — Novembre</div>
-        <div class="sales-point-detail">Journée gourmande Bésignan — Dimanche de Pentecôte</div>
-      </div>
+      {salesChannels.map((channel) => (
+        <div class="sales-point-card">
+          <h3>{channel.name}</h3>
+          {channel.details.map((detail) => (
+            <div class="sales-point-detail">{detail}</div>
+          ))}
+        </div>
+      ))}
     </div>
   </div>
 </section>

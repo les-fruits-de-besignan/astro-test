@@ -1,116 +1,45 @@
 ---
 import '../styles/Products.css';
+import { productCatalog } from '../data/products';
+
+function formatPrice(amount: number): string {
+  return `${amount.toFixed(2).replace('.', ',')} €`;
+}
 ---
 <section id="produits" class="section">
   <div class="container">
     <h2 class="section-title">Nos Produits d'Exception</h2>
 
-    <div class="products-category">
-      <h3 class="category-title"><span aria-hidden="true">🍒</span> Fruits &amp; Conserves</h3>
-      <div class="products-grid">
-
-        <div class="product-card">
-          <div class="product-image-wrap">
-            <img class="product-image" src="https://res.cloudinary.com/dgkrgabdc/image/upload/v1751127326/Capture_d_e%CC%81cran_2025-06-28_a%CC%80_18.13.26_vsisvn.png" alt="Fruits de saison" />
-          </div>
-          <div class="product-body">
-            <h4 class="product-title">Fruits de saison</h4>
-            <p class="product-desc">Récoltés à maturité optimale dans nos vergers ensoleillés. Fruits de table ou pour la confiture.</p>
-            <ul class="price-list">
-              <li>Cerises — juin</li>
-              <li>Abricots — juin / juillet</li>
-              <li>Poires — septembre</li>
-              <li>Coings — octobre</li>
-            </ul>
-            <a href="#contact" class="product-cta" aria-label="Commander des fruits de saison">Commander</a>
-          </div>
+    {productCatalog.map((category) => (
+      <div class="products-category">
+        <h3 class="category-title">
+          <span aria-hidden="true">{category.emoji}</span> {category.name}
+        </h3>
+        <div class="products-grid">
+          {category.products.map((product) => (
+            <div class="product-card">
+              <div class="product-image-wrap">
+                <img class="product-image" src={product.imageUrl} alt={product.imageAlt} />
+              </div>
+              <div class="product-body">
+                <h4 class="product-title">{product.name}</h4>
+                <p class="product-desc" set:html={product.description} />
+                <ul class="price-list">
+                  {product.seasonItems
+                    ? product.seasonItems.map((item) => <li>{item}</li>)
+                    : product.prices.map((price) => (
+                        <li>
+                          {price.prefix}{price.prefix ? ' ' : ''}<span class="price-amount">{formatPrice(price.amount)}</span>{price.prefix ? ' / ' : ' '}{price.unit}
+                        </li>
+                      ))
+                  }
+                </ul>
+                <a href="#contact" class="product-cta" aria-label={`Commander — ${product.name}`}>Commander</a>
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div class="product-card">
-          <div class="product-image-wrap">
-            <img class="product-image" src="https://res.cloudinary.com/dgkrgabdc/image/upload/v1751127326/sirop.png" alt="Confitures et Sirops" />
-          </div>
-          <div class="product-body">
-            <h4 class="product-title">Confitures & Sirops</h4>
-            <p class="product-desc">Sirops : Cerise, Abricot, Coing ou Menthe.<br/>Confitures : Cerises, Abricot, Abricots-lavande, Poire-vanille-cannelle, Poires, Prunes ou Coings.</p>
-            <ul class="price-list">
-              <li>Sirops <span class="price-amount">4,10 €</span> / bouteille 50cl</li>
-              <li>Confitures <span class="price-amount">3,20 €</span> / pot 200g</li>
-              <li>[Grand format] coing <span class="price-amount">6,00 €</span> / pot 330g</li>
-            </ul>
-            <a href="#contact" class="product-cta" aria-label="Commander des confitures et sirops">Commander</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-wrap">
-            <img class="product-image" src="https://res.cloudinary.com/dgkrgabdc/image/upload/v1751128075/Capture_d_e%CC%81cran_2025-06-28_a%CC%80_18.14.13_zzh1yc.png" alt="Jus et nectars" />
-          </div>
-          <div class="product-body">
-            <h4 class="product-title">Jus & Nectars</h4>
-            <p class="product-desc">Abricot, Pêche-Abricot, Pomme-Coings, Poires, Pommes-Poires et Cerises.</p>
-            <ul class="price-list">
-              <li><span class="price-amount">3,50 €</span> la bouteille</li>
-              <li><span class="price-amount">20,00 €</span> le carton de 6 bouteilles</li>
-            </ul>
-            <a href="#contact" class="product-cta" aria-label="Commander des jus et nectars">Commander</a>
-          </div>
-        </div>
-
       </div>
-    </div>
-
-    <div class="products-category">
-      <h3 class="category-title"><span aria-hidden="true">🌿</span> Amandes &amp; Aromates</h3>
-      <div class="products-grid">
-
-        <div class="product-card">
-          <div class="product-image-wrap">
-            <img class="product-image" src="https://res.cloudinary.com/duksfvujv/image/upload/v1696661771/almonds_o2ulpu.jpg" alt="Amandes et Amandons" />
-          </div>
-          <div class="product-body">
-            <h4 class="product-title">Amandes & Amandons</h4>
-            <p class="product-desc">En coques ou en sachet d'amandons.</p>
-            <ul class="price-list">
-              <li>Coques <span class="price-amount">6,00 €</span> / kg</li>
-              <li>Amandons <span class="price-amount">4,50 €</span> / sachet 200g</li>
-              <li>Amandons <span class="price-amount">11,00 €</span> / sachet 500g</li>
-            </ul>
-            <a href="#contact" class="product-cta" aria-label="Commander des amandes et amandons">Commander</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-wrap">
-            <img class="product-image" src="https://res.cloudinary.com/dgkrgabdc/image/upload/v1751128075/Capture_d_e%CC%81cran_2025-06-28_a%CC%80_18.14.13_zzh1yc.png" alt="Moutardes et pesto" />
-          </div>
-          <div class="product-body">
-            <h4 class="product-title">Moutardes & Pesto</h4>
-            <p class="product-desc">Moutarde aux amandes et pesto rouge aux amandes.</p>
-            <ul class="price-list">
-              <li>Moutarde <span class="price-amount">4,20 €</span> / pot 180g</li>
-              <li>Pesto <span class="price-amount">3,50 €</span> / pot 90g</li>
-            </ul>
-            <a href="#contact" class="product-cta" aria-label="Commander des moutardes et pesto">Commander</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-image-wrap">
-            <img class="product-image" src="https://res.cloudinary.com/dgkrgabdc/image/upload/v1751128073/Capture_d_e%CC%81cran_2025-06-28_a%CC%80_18.14.03_kmotvp.png" alt="Herbes aromatiques" />
-          </div>
-          <div class="product-body">
-            <h4 class="product-title">Herbes Aromatiques</h4>
-            <p class="product-desc">Mélange de thym, romarin, sarriette, sauge, origan (bio) issus de nos parcelles ou de la cueillette sauvage.</p>
-            <ul class="price-list">
-              <li><span class="price-amount">5,00 €</span> / sachet 40g</li>
-            </ul>
-            <a href="#contact" class="product-cta" aria-label="Commander des herbes aromatiques">Commander</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+    ))}
   </div>
 </section>
