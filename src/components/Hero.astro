@@ -1,14 +1,23 @@
 ---
 import '../styles/Hero.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 
 <section id="hero" aria-label="Présentation">
   <div class="hero-content">
     <h1>Les fruits de Bésignan</h1>
-    <p class="hero-subtitle">Découvrez nos fruits ensoleillés et les plantes aromatiques issus de nos vergers nichés en plein cœur du Parc Naturel des Baronnies Provençales</p>
+    <p class="hero-subtitle">{tr.hero.subtitle}</p>
     <div class="hero-buttons">
-      <a href="#produits" class="primary-button">Découvrir nos produits</a>
-      <a href="#contact" class="secondary-button">Commander maintenant</a>
+      <a href="#produits" class="primary-button">{tr.hero.ctaProducts}</a>
+      <a href="#contact" class="secondary-button">{tr.hero.ctaOrder}</a>
     </div>
   </div>
 </section>

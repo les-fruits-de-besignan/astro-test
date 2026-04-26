@@ -98,6 +98,82 @@
   color: var(--color-white) !important;
 }
 
+/* ── Language dropdown ── */
+.lang-dropdown {
+  position: relative;
+}
+
+.lang-trigger {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  line-height: 1;
+  transition: opacity 0.2s;
+}
+
+.lang-trigger:hover {
+  opacity: 0.75;
+}
+
+.lang-trigger:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.lang-flag {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  min-width: 110px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.lang-option:hover {
+  background: var(--color-gray-100);
+  color: var(--color-text-primary);
+}
+
+.lang-option--active {
+  font-weight: 700;
+}
+
+.lang-check {
+  width: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.lang-label {
+  letter-spacing: 0.03em;
+}
+
 @media screen and (max-width: 768px) {
   .nav-container {
     flex-direction: column;

@@ -1,16 +1,23 @@
 ---
-// ⚠️ Remplacez par votre vrai domaine avant de déployer
-const SITE_URL = 'https://www.lesfruitsdebésignan.fr';
+import type { Lang } from '../locales';
+import { t } from '../locales';
 
-const title = 'Les Fruits de Bésignan | Fruits, confitures et aromates des Baronnies Provençales';
-const description = 'Producteurs de fruits (cerises, abricots, poires, coings), confitures, sirops, jus, amandes et herbes aromatiques. GAEC du vieux château à Bésignan, Drôme (26). Vente directe à la ferme, sur les marchés et en livraison.';
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+
+const SITE_URL = 'https://www.lesfruitsdebésignan.fr';
 const ogImage = 'https://res.cloudinary.com/dgkrgabdc/image/upload/v1759491963/IMG_5966_t9wfap.jpg';
+const canonicalUrl = `${SITE_URL}${tr.layout.canonicalPath}`;
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Les Fruits de Bésignan — GAEC du vieux château",
-  "description": description,
+  "description": tr.layout.description,
   "url": SITE_URL,
   "email": "gaecduvieuxchateau@gmail.com",
   "address": {
@@ -26,69 +33,49 @@ const jsonLd = {
     "latitude": 44.327,
     "longitude": 5.335
   },
-  "sameAs": [
-    "https://www.instagram.com/les_fruits_de_besignan_/"
-  ],
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "description": "Toute l'année sur rendez-vous"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Nos produits",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Fruits de saison (cerises, abricots, poires, coings)" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Confitures et sirops artisanaux" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Jus et nectars de fruits" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Amandes et amandons" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Herbes aromatiques bio" } }
-    ]
-  }
+  "sameAs": ["https://www.instagram.com/les_fruits_de_besignan_/"],
 };
 ---
 <!doctype html>
-<html lang="fr-FR">
+<html lang={tr.layout.htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- SEO primaire -->
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={SITE_URL} />
+    <title>{tr.layout.title}</title>
+    <meta name="description" content={tr.layout.description} />
+    <link rel="canonical" href={canonicalUrl} />
 
-    <!-- Open Graph (Facebook, LinkedIn, WhatsApp…) -->
+    <!-- hreflang pour le SEO bilingue -->
+    <link rel="alternate" hreflang="fr" href={SITE_URL + "/"} />
+    <link rel="alternate" hreflang="en" href={SITE_URL + "/en/"} />
+    <link rel="alternate" hreflang="x-default" href={SITE_URL + "/"} />
+
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={SITE_URL} />
-    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={tr.layout.ogLocale} />
     <meta property="og:site_name" content="Les Fruits de Bésignan" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={tr.layout.title} />
+    <meta property="og:description" content={tr.layout.description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:alt" content="Vergers de la ferme Les Fruits de Bésignan dans les Baronnies Provençales" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={tr.layout.title} />
+    <meta name="twitter:description" content={tr.layout.description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.svg" sizes="any" />
 
-    <!-- Google Fonts — preconnect d'abord pour éviter le render-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" />
 
-    <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Données structurées JSON-LD -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
@@ -97,8 +84,7 @@ const jsonLd = {
 </html>
 
 <style>
-  html,
-  body {
+  html, body {
     margin: 0;
     width: 100%;
     height: 100%;

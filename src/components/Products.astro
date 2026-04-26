@@ -1,6 +1,15 @@
 ---
 import '../styles/Products.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
 import { productCatalog } from '../data/products';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 
 function formatPrice(amount: number): string {
   return `${amount.toFixed(2).replace('.', ',')} €`;
@@ -8,33 +17,33 @@ function formatPrice(amount: number): string {
 ---
 <section id="produits" class="section">
   <div class="container">
-    <h2 class="section-title">Nos Produits d'Exception</h2>
+    <h2 class="section-title">{tr.products.title}</h2>
 
     {productCatalog.map((category) => (
       <div class="products-category">
         <h3 class="category-title">
-          <span aria-hidden="true">{category.emoji}</span> {category.name}
+          <span aria-hidden="true">{category.emoji}</span> {category.name[lang]}
         </h3>
         <div class="products-grid">
           {category.products.map((product) => (
             <div class="product-card">
               <div class="product-image-wrap">
-                <img class="product-image" src={product.imageUrl} alt={product.imageAlt} />
+                <img class="product-image" src={product.imageUrl} alt={product.imageAlt[lang]} />
               </div>
               <div class="product-body">
-                <h4 class="product-title">{product.name}</h4>
-                <p class="product-desc" set:html={product.description} />
+                <h4 class="product-title">{product.name[lang]}</h4>
+                <p class="product-desc" set:html={product.description[lang]} />
                 <ul class="price-list">
                   {product.seasonItems
-                    ? product.seasonItems.map((item) => <li>{item}</li>)
+                    ? product.seasonItems.map((item) => <li>{item[lang]}</li>)
                     : product.prices.map((price) => (
                         <li>
-                          {price.prefix}{price.prefix ? ' ' : ''}<span class="price-amount">{formatPrice(price.amount)}</span>{price.prefix ? ' / ' : ' '}{price.unit}
+                          {price.prefix ? price.prefix[lang] : ''}{price.prefix ? ' ' : ''}<span class="price-amount">{formatPrice(price.amount)}</span>{price.prefix ? ' / ' : ' '}{price.unit[lang]}
                         </li>
                       ))
                   }
                 </ul>
-                <a href="#contact" class="product-cta" aria-label={`Commander — ${product.name}`}>Commander</a>
+                <a href="#contact" class="product-cta" aria-label={`${tr.products.orderCta} — ${product.name[lang]}`}>{tr.products.orderCta}</a>
               </div>
             </div>
           ))}

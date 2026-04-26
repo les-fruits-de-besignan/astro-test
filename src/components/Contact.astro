@@ -1,23 +1,32 @@
 ---
 import '../styles/Contact.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang).contact;
 ---
 <section id="contact" class="section">
   <div class="container">
-    <h2 class="section-title">Commandez Maintenant</h2>
+    <h2 class="section-title">{tr.sectionTitle}</h2>
     <div class="contact-content">
 
       <div class="contact-info">
-        <h3>Contactez-nous</h3>
+        <h3>{tr.contactTitle}</h3>
         <div class="contact-info-item">
           <span class="contact-info-icon" aria-hidden="true">📧</span>
           <a href="mailto:gaecduvieuxchateau@gmail.com">gaecduvieuxchateau@gmail.com</a>
         </div>
         <div class="contact-info-item">
           <span class="contact-info-icon" aria-hidden="true">📍</span>
-          <span>Bésignan, 26110, Drôme</span>
+          <span>{tr.address}</span>
         </div>
         <div class="social-links">
-          <a href="https://www.instagram.com/les_fruits_de_besignan_/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram — ouvre dans un nouvel onglet">
+          <a href="https://www.instagram.com/les_fruits_de_besignan_/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label={tr.instagramAriaLabel}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
@@ -36,60 +45,61 @@ import '../styles/Contact.css';
           action="/success"
         >
           <input type="hidden" name="bot-field" />
+          <input type="hidden" name="lang" value={lang} />
 
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Votre nom et prénom</label>
-              <input id="name" type="text" name="name" placeholder="Marie Dupont" />
+              <label for="name">{tr.nameLabel}</label>
+              <input id="name" type="text" name="name" placeholder={tr.namePlaceholder} />
             </div>
             <div class="form-group">
-              <label for="tel">Votre téléphone</label>
-              <input id="tel" type="tel" name="tel" placeholder="06 12 34 56 78" />
+              <label for="tel">{tr.phoneLabel}</label>
+              <input id="tel" type="tel" name="tel" placeholder={tr.phonePlaceholder} />
             </div>
           </div>
 
           <div class="form-group">
-            <label for="email">Votre email <span class="required">*</span></label>
-            <input id="email" type="email" name="email" placeholder="marie@exemple.fr" required />
+            <label for="email">{tr.emailLabel} <span class="required">*</span></label>
+            <input id="email" type="email" name="email" placeholder={tr.emailPlaceholder} required />
           </div>
 
           <div class="form-group">
-            <label for="delivery">Mode de récupération <span class="required">*</span></label>
+            <label for="delivery">{tr.deliveryLabel} <span class="required">*</span></label>
             <select id="delivery" name="delivery" required>
-              <option value="" disabled selected>Choisissez une option…</option>
-              <option value="ferme">Venir à la ferme</option>
-              <option value="livraison">Livraison à domicile</option>
-              <option value="marché">Récupération sur les marchés</option>
+              <option value="" disabled selected>{tr.deliveryPlaceholder}</option>
+              <option value="ferme">{tr.deliveryFarm}</option>
+              <option value="livraison">{tr.deliveryHome}</option>
+              <option value="marché">{tr.deliveryMarket}</option>
             </select>
           </div>
 
           <fieldset class="form-fieldset">
-            <legend>Produits souhaités</legend>
+            <legend>{tr.productsLegend}</legend>
             <label class="checkbox-label">
-              <input type="checkbox" name="products[]" value="Fruits frais" />
-              Fruits frais (à déguster ou confiture)
+              <input type="checkbox" name="products[]" value="fresh-fruits" />
+              {tr.freshFruits}
             </label>
             <label class="checkbox-label">
-              <input type="checkbox" name="products[]" value="Jus, nectars, sirops" />
-              Jus, nectars et sirops
+              <input type="checkbox" name="products[]" value="juices" />
+              {tr.juices}
             </label>
             <label class="checkbox-label">
-              <input type="checkbox" name="products[]" value="Conserves et aromates" />
-              Moutarde, pesto, confitures, herbes aromatiques
+              <input type="checkbox" name="products[]" value="preserves" />
+              {tr.preserves}
             </label>
           </fieldset>
 
           <div class="form-group">
-            <label for="message">Votre demande <span class="required">*</span></label>
-            <textarea id="message" name="message" placeholder="Décrivez votre commande : produits, quantités, dates souhaitées…" required></textarea>
+            <label for="message">{tr.messageLabel} <span class="required">*</span></label>
+            <textarea id="message" name="message" placeholder={tr.messagePlaceholder} required></textarea>
           </div>
 
           <label class="checkbox-label rgpd-label">
             <input type="checkbox" name="rgpd" value="rgpd" required />
-            J'accepte que mes coordonnées soient utilisées pour être recontacté(e) <span class="required">*</span>
+            {tr.rgpd} <span class="required">*</span>
           </label>
 
-          <button type="submit" class="submit-button">Envoyer ma commande</button>
+          <button type="submit" class="submit-button">{tr.submit}</button>
         </form>
       </div>
     </div>

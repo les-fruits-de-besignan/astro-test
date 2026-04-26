@@ -1,10 +1,19 @@
 ---
 import '../styles/SeasonOffer.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
 import { seasonalItems } from '../data/seasonality';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 <section id="Seasonnal" class="section bg-light" aria-label="Nos fruits de saison">
   <div class="container-with-bg">
-    <h2 class="section-title">Nos Fruits de Saison</h2>
+    <h2 class="section-title">{tr.seasonOffer.title}</h2>
     <div class="seasonal-fruits-layout">
       <div class="fruits-image">
         <img
@@ -16,8 +25,8 @@ import { seasonalItems } from '../data/seasonality';
         <div class="season-list">
           {seasonalItems.map((item) => (
             <div class="season-item">
-              <h3>{item.name}</h3>
-              <p>{item.details}</p>
+              <h3>{item.name[lang]}</h3>
+              <p>{item.details[lang]}</p>
             </div>
           ))}
         </div>

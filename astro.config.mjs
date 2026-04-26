@@ -12,4 +12,11 @@ export default defineConfig({
     react(),
     sitemap(),
   ],
+  i18n: {
+    defaultLocale: 'fr',
+    locales: ['fr', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

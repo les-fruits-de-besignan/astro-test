@@ -1,8 +1,17 @@
 ---
 import '../styles/Footer.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 <footer class="footer">
   <div class="container">
-    <p>&copy; {new Date().getFullYear()} Les fruits de Bésignan. Tous droits réservés.</p>
+    <p>&copy; {new Date().getFullYear()} Les fruits de Bésignan. {tr.footer.rights}</p>
   </div>
-</footer> 
+</footer>

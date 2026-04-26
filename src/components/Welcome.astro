@@ -1,4 +1,5 @@
 ---
+import type { Lang } from '../locales';
 import NavBar from './NavBar.astro';
 import Hero from './Hero.astro';
 import Products from './Products.astro';
@@ -10,18 +11,24 @@ import Footer from './Footer.astro';
 import NextDates from './NextDates.astro';
 
 import '../styles/global.css';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
 ---
 
 <div id="container">
-	<NavBar />
-	<main id="main-content">
-		<Hero />
-		<Products />
-		<NextDates />
-		<SeasonOffer />
-		<Benefits />
-		<SalesPoints />
-		<Contact />
-	</main>
-	<Footer />
+  <NavBar lang={lang} />
+  <main id="main-content">
+    <Hero lang={lang} />
+    <Products lang={lang} />
+    <NextDates lang={lang} />
+    <SeasonOffer lang={lang} />
+    <Benefits lang={lang} />
+    <SalesPoints lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
 </div>

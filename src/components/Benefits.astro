@@ -1,16 +1,25 @@
 ---
 import '../styles/Benefits.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
 import { benefits } from '../data/benefits';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 <section id="avantages" class="section bg-light">
   <div class="container">
-    <h2 class="section-title">Pourquoi Choisir Nos Produits ?</h2>
+    <h2 class="section-title">{tr.benefits.title}</h2>
     <div class="benefits-grid">
       {benefits.map((benefit) => (
         <div class="benefit-item">
           <div class="benefit-icon" aria-hidden="true">{benefit.emoji}</div>
-          <h3>{benefit.title}</h3>
-          <p>{benefit.description}</p>
+          <h3>{benefit.title[lang]}</h3>
+          <p>{benefit.description[lang]}</p>
         </div>
       ))}
     </div>

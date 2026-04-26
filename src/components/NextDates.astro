@@ -1,17 +1,26 @@
 ---
 import '../styles/NextDates.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
 import { farmerMarkets } from '../data/markets';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 <section id="Next-dates" class="nextDates" aria-label="Marchés de producteurs">
   <div class="container">
-    <h2 class="section-title">Marchés de producteurs</h2>
+    <h2 class="section-title">{tr.nextDates.title}</h2>
     <div class="next-dates-grid">
       {farmerMarkets.map((market) => (
         <div class="next-dates-item">
           <div class="next-dates-icon" aria-hidden="true">📅</div>
           <h3>{market.location}</h3>
-          <p class="next-dates-period">{market.period}</p>
-          <p class="next-dates-desc">{market.description}</p>
+          <p class="next-dates-period">{market.period[lang]}</p>
+          <p class="next-dates-desc">{market.description[lang]}</p>
         </div>
       ))}
     </div>

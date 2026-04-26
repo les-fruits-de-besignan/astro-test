@@ -1,15 +1,26 @@
 ---
 import '../styles/NavBar.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
+import LangToggle from './LangToggle.tsx';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 <nav class="navbar" aria-label="Navigation principale">
   <div class="nav-container">
     <a href="#hero" class="nav-logo" aria-label="Les fruits de Bésignan — retour en haut">Les fruits de Bésignan</a>
     <div class="nav-links">
-      <a href="#produits">Nos Produits</a>
-      <a href="#Seasonnal">En cette Saison</a>
-      <a href="#avantages">Avantages</a>
-      <a href="#contact" class="cta-button">Commander</a>
+      <a href="#produits">{tr.nav.products}</a>
+      <a href="#Seasonnal">{tr.nav.season}</a>
+      <a href="#avantages">{tr.nav.benefits}</a>
+      <a href="#contact" class="cta-button">{tr.nav.order}</a>
+      <LangToggle lang={lang} client:load />
     </div>
   </div>
 </nav>

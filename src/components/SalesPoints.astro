@@ -1,16 +1,25 @@
 ---
 import '../styles/SalesPoints.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
 import { salesChannels } from '../data/markets';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
 ---
 <section id="SalesPoints" class="section">
   <div class="container">
-    <h2 class="section-title">Nos Points de Ventes</h2>
+    <h2 class="section-title">{tr.salesPoints.title}</h2>
     <div class="sales-points-grid">
       {salesChannels.map((channel) => (
         <div class="sales-point-card">
-          <h3>{channel.name}</h3>
+          <h3>{channel.name[lang]}</h3>
           {channel.details.map((detail) => (
-            <div class="sales-point-detail">{detail}</div>
+            <div class="sales-point-detail">{detail[lang]}</div>
           ))}
         </div>
       ))}
