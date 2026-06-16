@@ -7,6 +7,7 @@ export type Price = {
 };
 
 export type Product = {
+  slug: string;
   name: LocaleString;
   description: LocaleString;
   imageUrl: string;
@@ -27,6 +28,7 @@ export const productCatalog: ProductCategory[] = [
     emoji: "🍒",
     products: [
       {
+        slug: "fruits-de-saison",
         name: { fr: "Fruits de saison", en: "Seasonal Fruits" },
         description: {
           fr: "Récoltés à maturité optimale dans nos vergers ensoleillés. Fruits de table ou pour la confiture.",
@@ -43,6 +45,7 @@ export const productCatalog: ProductCategory[] = [
         ],
       },
       {
+        slug: "confitures-sirops",
         name: { fr: "Confitures & Sirops", en: "Jams & Syrups" },
         description: {
           fr: "Sirops : Cerise, Abricot, Coing ou Menthe.<br/>Confitures : Cerises, Abricot, Abricots-lavande, Poire-vanille-cannelle, Poires, Prunes ou Coings.",
@@ -57,6 +60,7 @@ export const productCatalog: ProductCategory[] = [
         ],
       },
       {
+        slug: "jus-nectars",
         name: { fr: "Jus & Nectars", en: "Juices & Nectars" },
         description: {
           fr: "Abricot, Pêche-Abricot, Pomme-Coings, Poires, Pommes-Poires et Cerises.",
@@ -76,6 +80,7 @@ export const productCatalog: ProductCategory[] = [
     emoji: "🌿",
     products: [
       {
+        slug: "amandes",
         name: { fr: "Amandes & Amandons", en: "Almonds" },
         description: {
           fr: "En coques ou en sachet d'amandons.",
@@ -90,6 +95,7 @@ export const productCatalog: ProductCategory[] = [
         ],
       },
       {
+        slug: "moutardes-pesto",
         name: { fr: "Moutardes & Pesto", en: "Mustards & Pesto" },
         description: {
           fr: "Moutarde aux amandes et pesto rouge aux amandes.",
@@ -103,6 +109,7 @@ export const productCatalog: ProductCategory[] = [
         ],
       },
       {
+        slug: "herbes-aromatiques",
         name: { fr: "Herbes Aromatiques", en: "Aromatic Herbs" },
         description: {
           fr: "Mélange de thym, romarin, sarriette, sauge, origan (bio) issus de nos parcelles ou de la cueillette sauvage.",

@@ -34,7 +34,8 @@
 }
 
 .next-dates-icon {
-  font-size: 2rem;
+  display: inline-flex;
+  color: var(--color-white);
   margin-bottom: 0.75rem;
 }
 
@@ -45,15 +46,19 @@
 }
 
 .next-dates-period {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-white);
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--color-primary-inverted);
-  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  margin: 0 0 0.6rem;
 }
 
 .next-dates-desc {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.92);
   margin: 0;
 }
 

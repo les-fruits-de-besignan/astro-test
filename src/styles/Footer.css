@@ -3,5 +3,20 @@
 	background: var(--color-primary);
 	color: var(--color-white);
 	text-align: center;
-	padding: 2rem;
-} 
+	padding: 2.5rem 2rem;
+	border-top: 3px solid var(--color-accent);
+}
+
+/* Warm handwritten sign-off — the page ends on an invitation, not on legalese. */
+.footer-signoff {
+	font-family: 'Dancing Script', cursive;
+	font-weight: 700;
+	font-size: 1.6rem;
+	margin: 0 0 0.4rem;
+}
+
+.footer-copyright {
+	font-size: 0.9rem;
+	color: var(--color-white);
+	margin: 0;
+}

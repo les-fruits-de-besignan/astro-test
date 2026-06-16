@@ -48,7 +48,7 @@ function formatPrice(amount: number): string {
                       ))
                   }
                 </ul>
-                <a href="#contact" class="product-cta" aria-label={`${tr.products.orderCta} — ${product.name[lang]}`}>{tr.products.orderCta}</a>
+                <a href="#contact" class="product-cta" data-product={product.slug} aria-label={`${tr.products.orderCta} — ${product.name[lang]}`}>{tr.products.orderCta}</a>
               </div>
             </div>
           ))}

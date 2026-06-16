@@ -152,6 +152,30 @@
   color: var(--color-primary);
 }
 
+/* 6 product checkboxes in a 2-column grid on wider viewports. */
+.products-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem 1.25rem;
+}
+
+/* Brief highlight when a product is prefilled from a "Commander" CTA. */
+.checkbox-label.just-added {
+  animation: product-added 1.2s ease;
+  border-radius: 8px;
+}
+
+@keyframes product-added {
+  0%, 40% { background: var(--color-primary-lighter); }
+  100% { background: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checkbox-label.just-added {
+    animation: none;
+  }
+}
+
 .checkbox-label {
   display: flex;
   align-items: flex-start;
@@ -316,7 +340,8 @@
     position: static;
   }
 
-  .form-row {
+  .form-row,
+  .products-checkboxes {
     grid-template-columns: 1fr;
   }
 

@@ -2,6 +2,7 @@
 import '../styles/Contact.css';
 import type { Lang } from '../locales';
 import { t } from '../locales';
+import { productCatalog } from '../data/products';
 
 interface Props {
   lang: Lang;
@@ -9,6 +10,10 @@ interface Props {
 
 const { lang } = Astro.props;
 const tr = t(lang).contact;
+
+// Single source of truth: the order checkboxes mirror the real product catalog,
+// and their `value` (slug) matches the `data-product` on each product CTA.
+const orderableProducts = productCatalog.flatMap((category) => category.products);
 ---
 <section id="contact" class="section">
   <div class="container">
@@ -84,18 +89,14 @@ const tr = t(lang).contact;
 
           <fieldset class="form-fieldset">
             <legend>{tr.productsLegend}</legend>
-            <label class="checkbox-label">
-              <input type="checkbox" name="products[]" value="fresh-fruits" />
-              {tr.freshFruits}
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="products[]" value="juices" />
-              {tr.juices}
-            </label>
-            <label class="checkbox-label">
-              <input type="checkbox" name="products[]" value="preserves" />
-              {tr.preserves}
-            </label>
+            <div class="products-checkboxes">
+              {orderableProducts.map((product) => (
+                <label class="checkbox-label">
+                  <input type="checkbox" name="products[]" value={product.slug} />
+                  {product.name[lang]}
+                </label>
+              ))}
+            </div>
           </fieldset>
 
           <div class="form-group">
@@ -114,7 +115,7 @@ const tr = t(lang).contact;
           </div>
 
           <div class="form-actions">
-            <button type="submit" class="submit-button primary-button">
+            <button type="submit" class="submit-button">
               <span class="submit-label">{tr.submit}</span>
               <span class="submit-spinner" aria-hidden="true"></span>
             </button>
@@ -226,6 +227,31 @@ const tr = t(lang).contact;
               button.disabled = false;
               button.classList.remove("is-loading");
             }
+          });
+
+          // Product "Commander" CTAs prefill the matching product checkbox.
+          const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          const messageField = form.querySelector("#message");
+          const contactSection = document.getElementById("contact");
+          document.querySelectorAll("a[data-product]").forEach((cta) => {
+            cta.addEventListener("click", (event) => {
+              const slug = cta.getAttribute("data-product");
+              const box = form.querySelector('input[name="products[]"][value="' + slug + '"]');
+              if (!box) return; // no match → let the anchor scroll natively
+              event.preventDefault();
+              box.checked = true;
+              const label = box.closest(".checkbox-label");
+              if (label) {
+                label.classList.remove("just-added");
+                void label.offsetWidth; // restart the highlight animation
+                label.classList.add("just-added");
+              }
+              (contactSection || form).scrollIntoView({
+                behavior: prefersReduced ? "auto" : "smooth",
+                block: "start",
+              });
+              messageField?.focus({ preventScroll: true });
+            });
           });
         }
       </script>

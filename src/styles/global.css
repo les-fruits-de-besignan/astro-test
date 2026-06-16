@@ -8,6 +8,12 @@
 	--color-primary-lighter: #e6f7f6;
 	--color-primary-lightest: #f2fbfa;
 	--color-primary-hover: #0a5955;
+
+	/* Accent — Ocre soleil, réservé à l'action « commander » */
+	--color-accent: #A85D0E;
+	--color-accent-hover: #8c4d0c;
+	--color-accent-shadow: rgba(168, 93, 14, 0.2);
+	--color-accent-shadow-soft: rgba(168, 93, 14, 0.14);
 	
 	/* Neutral Colors */
 	--color-white: #ffffff;
@@ -66,6 +72,7 @@ body, p, .body-text, h1, h2, h3, .section-title, .card-title, .button, .primary-
 
 .primary-button:focus-visible,
 .pricing-button:focus-visible,
+.accent-button:focus-visible,
 .submit-button:focus-visible {
   outline: 3px solid var(--color-white);
   outline-offset: 3px;
@@ -148,7 +155,7 @@ body, p, .body-text {
 }
 
 /* Common Button Styles */
-.primary-button, .secondary-button, .pricing-button, .submit-button {
+.primary-button, .secondary-button, .accent-button, .pricing-button, .submit-button {
 	padding: 1rem 2rem;
 	border-radius: 8px;
 	text-decoration: none;
@@ -157,14 +164,14 @@ body, p, .body-text {
 	border: none;
 }
 
-.primary-button, .pricing-button, .submit-button {
+.primary-button, .pricing-button {
 	background: linear-gradient(83.21deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
 	color: var(--color-white);
 	box-shadow: 0 4px 15px var(--color-shadow-primary);
 	border: 1px solid var(--color-primary);
 }
 
-.primary-button:hover, .pricing-button:hover, .submit-button:hover {
+.primary-button:hover, .pricing-button:hover {
 	background: var(--color-primary-hover);
 	color: var(--color-white);
 	box-shadow: 0 6px 20px var(--color-shadow-dark);
@@ -182,6 +189,22 @@ body, p, .body-text {
 	background: var(--color-gray-50);
 	color: var(--color-primary-hover);
 	border-color: var(--color-primary-hover);
+	transform: translateY(-4px);
+}
+
+/* Accent button — the "order" action (ocre soleil). Used on nav/hero/form-submit only. */
+.accent-button, .submit-button {
+	background: var(--color-accent);
+	color: var(--color-white);
+	box-shadow: 0 4px 15px var(--color-accent-shadow-soft);
+	border: 1px solid var(--color-accent);
+}
+
+.accent-button:hover, .submit-button:hover {
+	background: var(--color-accent-hover);
+	color: var(--color-white);
+	box-shadow: 0 6px 20px var(--color-accent-shadow);
+	border-color: var(--color-accent-hover);
 	transform: translateY(-4px);
 }
 

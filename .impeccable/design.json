@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T00:00:00Z",
+  "generatedAt": "2026-06-16T14:17:00Z",
   "title": "Design System: Les fruits de Bésignan",
   "extensions": {
     "colorMeta": {
@@ -10,14 +10,16 @@
       "encre": { "role": "neutral", "displayName": "Encre", "canonical": "#111827", "tonalRamp": ["#111827", "#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f3f4f6", "#f9fafb"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display (Dancing Script)", "purpose": "Logo et titres héros uniquement — la signature manuscrite de la marque." },
+      "display": { "displayName": "Display (Dancing Script)", "purpose": "Logo, titres héros et sign-off footer — la signature manuscrite de la marque." },
       "headline": { "displayName": "Headline", "purpose": "Titres de section h2, en vert verger." },
       "body": { "displayName": "Body", "purpose": "Texte courant, 65–75ch max par ligne." }
     },
     "shadows": [
       { "name": "ambiante-legere", "value": "0 4px 20px rgba(0,124,118,0.07)", "purpose": "Repos des cartes produit/prix — ombre diffuse teintée vert." },
       { "name": "ambiante-moyenne", "value": "0 4px 15px rgba(0,124,118,0.1)", "purpose": "Boutons primaires au repos." },
-      { "name": "elevee", "value": "0 8px 30px rgba(0,124,118,0.18)", "purpose": "Cartes et boutons survolés, combiné à translateY(-4px)." }
+      { "name": "elevee", "value": "0 8px 30px rgba(0,124,118,0.18)", "purpose": "Cartes et boutons survolés, combiné à translateY(-4px)." },
+      { "name": "accent-soft", "value": "0 4px 15px rgba(168,93,14,0.14)", "purpose": "Repos du bouton accent ocre (action commander)." },
+      { "name": "accent", "value": "0 6px 20px rgba(168,93,14,0.2)", "purpose": "Bouton accent ocre survolé." }
     ],
     "motion": [
       { "name": "transition-standard", "value": "0.3s ease", "purpose": "Transition par défaut des survols (couleur, transform, ombre)." },
@@ -33,17 +35,17 @@
       "name": "Bouton primaire",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Action principale, fond vert verger.",
+      "description": "Action principale (découvrir), fond vert verger.",
       "html": "<button class=\"ds-btn-primary\">Découvrir nos produits</button>",
       "css": ".ds-btn-primary { background: #007C76; color: #fff; padding: 1rem 2rem; border: 1px solid #007C76; border-radius: 8px; font-family: 'Noto Sans', Arial, sans-serif; font-weight: 600; letter-spacing: 0.01em; box-shadow: 0 4px 15px rgba(0,124,118,0.1); transition: background 0.3s, transform 0.3s, box-shadow 0.3s; cursor: pointer; } .ds-btn-primary:hover { background: #0a5955; transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,124,118,0.18); } .ds-btn-primary:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }"
     },
     {
-      "name": "Bouton accent gourmand",
+      "name": "Bouton accent (commander)",
       "kind": "button",
       "refersTo": "button-accent",
-      "description": "CTA chaleureux ponctuel (commander, venir au marché), fond ocre soleil.",
+      "description": "L'action « commander / venir » — ocre soleil. Utilisé uniquement sur nav, hero et envoi du formulaire.",
       "html": "<button class=\"ds-btn-accent\">Commander maintenant</button>",
-      "css": ".ds-btn-accent { background: #A85D0E; color: #fff; padding: 1rem 2rem; border: none; border-radius: 8px; font-family: 'Noto Sans', Arial, sans-serif; font-weight: 600; letter-spacing: 0.01em; box-shadow: 0 4px 15px rgba(168,93,14,0.15); transition: background 0.3s, transform 0.3s; cursor: pointer; } .ds-btn-accent:hover { background: #8c4d0c; transform: translateY(-4px); } .ds-btn-accent:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }"
+      "css": ".ds-btn-accent { background: #A85D0E; color: #fff; padding: 1rem 2rem; border: 1px solid #A85D0E; border-radius: 8px; font-family: 'Noto Sans', Arial, sans-serif; font-weight: 600; letter-spacing: 0.01em; box-shadow: 0 4px 15px rgba(168,93,14,0.14); transition: background 0.3s, transform 0.3s, box-shadow 0.3s; cursor: pointer; } .ds-btn-accent:hover { background: #8c4d0c; transform: translateY(-4px); box-shadow: 0 6px 20px rgba(168,93,14,0.2); } .ds-btn-accent:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }"
     },
     {
       "name": "Bouton secondaire",
@@ -52,6 +54,14 @@
       "description": "Action alternative, contour vert sur fond blanc.",
       "html": "<button class=\"ds-btn-secondary\">En savoir plus</button>",
       "css": ".ds-btn-secondary { background: #fff; color: #007C76; padding: 1rem 2rem; border: 2px solid #007C76; border-radius: 8px; font-family: 'Noto Sans', Arial, sans-serif; font-weight: 600; transition: background 0.3s, color 0.3s, transform 0.3s; cursor: pointer; } .ds-btn-secondary:hover { background: #f9fafb; color: #0a5955; border-color: #0a5955; transform: translateY(-4px); } .ds-btn-secondary:focus-visible { outline: 3px solid #007C76; outline-offset: 3px; }"
+    },
+    {
+      "name": "Pastille de date",
+      "kind": "chip",
+      "refersTo": "date-pill",
+      "description": "Période/date d'un marché — pastille ocre pleine, texte blanc. Accent chaud lisible sur le bloc vert (remplace l'ancien texte saumon).",
+      "html": "<span class=\"ds-date-pill\">Juin – Juillet</span>",
+      "css": ".ds-date-pill { display: inline-block; background: #A85D0E; color: #fff; font-family: 'Noto Sans', Arial, sans-serif; font-weight: 700; font-size: 0.9rem; padding: 0.25rem 0.8rem; border-radius: 999px; }"
     },
     {
       "name": "Carte produit",
@@ -75,34 +85,36 @@
     "overview": "Tout part d'un verger des Baronnies Provençales en plein été : le vert profond du feuillage, la lumière franche, les fruits gorgés de soleil. Un vert verger d'identité non négociable, réchauffé par une touche d'ocre soleil là où l'on veut donner faim ou inviter à l'action. La photographie porte l'appétit ; la couleur et la typographie l'encadrent. Voix artisanale, sincère, généreuse ; net & soigné plutôt que tape-à-l'œil. Le système rejette l'esthétique supermarché/industrielle et le surchargé/kitsch.",
     "keyCharacteristics": [
       "Vert verger dominant, ocre soleil en accent chaleureux — jamais l'inverse.",
+      "L'ocre = l'action de commander/venir ; partout ailleurs, le vert.",
       "La photographie est le héros ; la couleur l'encadre.",
       "Un seul contraste typographique fort : script manuscrit + sans lisible.",
       "Net & soigné : arrondis maîtrisés, ombres douces teintées vert, zéro surcharge.",
       "Lisible par tous (cible WCAG AA)."
     ],
     "rules": [
-      { "name": "The Vert-d'abord Rule", "body": "Le vert verger reste la couleur dominante de toute surface. L'ocre soleil est un accent : CTA, une section ponctuelle, le pied de page. S'il porte une surface entière, on a basculé hors-marque.", "section": "colors" },
-      { "name": "The Salmon-banni Rule", "body": "L'ancien saumon #ff8389 est retiré : sur le vert il tombe à 2.14:1 (échec AA). Date/étiquette concernée → blanc 700 ou ocre soleil.", "section": "colors" },
-      { "name": "The Un-seul-script Rule", "body": "Dancing Script ne sert qu'au logo et aux titres héros. Jamais en corps, bouton ou bloc long.", "section": "typography" },
-      { "name": "The Pas-d'eyebrow Rule", "body": "Pas de petite étiquette en majuscules tracée au-dessus de chaque titre de section.", "section": "typography" },
-      { "name": "The Soulèvement-cohérent Rule", "body": "Un seul incrément de soulèvement au survol : translateY(-4px). Uniformiser les valeurs actuelles (-2px à -8px).", "section": "elevation" }
+      { "name": "The Vert-d'abord Rule", "body": "Le vert verger reste la couleur dominante de toute surface. L'ocre soleil est un accent : il ne porte jamais une surface entière. S'il porte une surface entière, on a basculé hors-marque.", "section": "colors" },
+      { "name": "The Ocre-action Rule", "body": "L'ocre soleil marque uniquement le geste « commander / venir » : bouton CTA (nav, hero, envoi formulaire), pastille de date des marchés, couture haute du footer. L'ocre n'est jamais du texte sur le vert (1:1, illisible) — toujours une surface pleine avec texte blanc (4.96:1).", "section": "colors" },
+      { "name": "The Salmon-banni Rule", "body": "L'ancien saumon #ff8389 est retiré : sur le vert il tombe à 2.14:1 (échec AA). Date/étiquette concernée → pastille ocre (texte blanc) ou blanc 700.", "section": "colors" },
+      { "name": "The Un-seul-script Rule", "body": "Dancing Script ne sert qu'au logo, aux titres héros et au sign-off footer. Jamais en corps, bouton ou bloc long.", "section": "typography" },
+      { "name": "The Pas-d'eyebrow Rule", "body": "Pas de petite étiquette en majuscules tracée au-dessus de chaque titre de section ; pas d'emoji en guise d'iconographie de marque.", "section": "typography" },
+      { "name": "The Soulèvement-cohérent Rule", "body": "Un seul incrément de soulèvement au survol : translateY(-4px), uniforme sur cartes et boutons.", "section": "elevation" }
     ],
     "dos": [
       "Do garder le vert verger (#007C76) comme couleur dominante de chaque surface.",
-      "Do réchauffer ponctuellement avec l'ocre soleil (#A85D0E) — CTA, dates, footer — sans qu'il devienne la surface.",
+      "Do réserver l'ocre soleil (#A85D0E) au geste « commander / venir », en surface pleine + texte blanc.",
       "Do laisser la photographie des fruits et du paysage porter l'appétit.",
       "Do teinter les ombres de vert (rgba(0,124,118,…)).",
-      "Do réserver Dancing Script au logo et aux titres héros.",
+      "Do réserver Dancing Script au logo, aux titres héros et au sign-off footer.",
       "Do viser AA : texte ≥ 4.5:1, prefers-reduced-motion, labels visibles."
     ],
     "donts": [
       "Don't ressembler à un supermarché / grande distribution (froid, promo, industriel).",
       "Don't verser dans le surchargé / kitsch (couleurs criardes, clipart, folklore décoratif, animations partout).",
+      "Don't utiliser l'ocre comme texte sur le vert (illisible) ni lui faire porter une surface entière.",
       "Don't réintroduire le saumon #ff8389 sur le vert (échec AA).",
       "Don't noyer la page sous des dégradés vert-vers-blanc sur chaque section.",
-      "Don't poser un eyebrow en majuscules au-dessus de chaque titre.",
-      "Don't empiler quatre grilles de cartes identiques d'affilée.",
-      "Don't utiliser des emojis comme iconographie de marque."
+      "Don't poser un eyebrow en majuscules ni un emoji-icône au-dessus de chaque titre.",
+      "Don't empiler quatre grilles de cartes identiques d'affilée."
     ]
   }
 }

@@ -73,11 +73,7 @@
 }
 
 .cta-button {
-  background: linear-gradient(
-    83.21deg,
-    var(--color-primary) 0%,
-    var(--color-primary-light) 100%
-  );
+  background: var(--color-accent);
   color: var(--color-white) !important;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -93,7 +89,7 @@
 
 .cta-button:hover {
   transform: translateY(-4px);
-  background: var(--color-primary-hover);
+  background: var(--color-accent-hover);
   color: var(--color-white) !important;
 }
 

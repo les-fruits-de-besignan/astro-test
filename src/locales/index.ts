@@ -48,9 +48,6 @@ type Translations = {
     deliveryHome: string;
     deliveryMarket: string;
     productsLegend: string;
-    freshFruits: string;
-    juices: string;
-    preserves: string;
     messageLabel: string;
     messagePlaceholder: string;
     rgpd: string;
@@ -73,7 +70,7 @@ type Translations = {
       retry: string;
     };
   };
-  footer: { rights: string };
+  footer: { signoff: string; rights: string };
 };
 
 const locales: Record<Lang, Translations> = {
@@ -124,9 +121,6 @@ const locales: Record<Lang, Translations> = {
       deliveryHome: "Livraison à domicile",
       deliveryMarket: "Récupération sur les marchés",
       productsLegend: "Produits souhaités",
-      freshFruits: "Fruits frais (à déguster ou confiture)",
-      juices: "Jus, nectars et sirops",
-      preserves: "Moutarde, pesto, confitures, herbes aromatiques",
       messageLabel: "Votre demande",
       messagePlaceholder: "Décrivez votre commande : produits, quantités, dates souhaitées…",
       rgpd: "J'accepte que mes coordonnées soient utilisées pour être recontacté(e)",
@@ -149,7 +143,10 @@ const locales: Record<Lang, Translations> = {
         retry: "Réessayer",
       },
     },
-    footer: { rights: "Tous droits réservés." },
+    footer: {
+      signoff: "À bientôt à la ferme ou sur les marchés",
+      rights: "Tous droits réservés.",
+    },
   },
   en: {
     nav: {
@@ -198,9 +195,6 @@ const locales: Record<Lang, Translations> = {
       deliveryHome: "Home delivery",
       deliveryMarket: "Pick up at a market",
       productsLegend: "Desired products",
-      freshFruits: "Fresh fruits (to eat or for jam)",
-      juices: "Juices, nectars and syrups",
-      preserves: "Mustard, pesto, jams, aromatic herbs",
       messageLabel: "Your request",
       messagePlaceholder: "Describe your order: products, quantities, preferred dates…",
       rgpd: "I agree that my contact details may be used to get back to me",
@@ -223,7 +217,10 @@ const locales: Record<Lang, Translations> = {
         retry: "Try again",
       },
     },
-    footer: { rights: "All rights reserved." },
+    footer: {
+      signoff: "See you at the farm or at the markets",
+      rights: "All rights reserved.",
+    },
   },
 };
 
