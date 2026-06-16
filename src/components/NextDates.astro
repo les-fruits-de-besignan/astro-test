@@ -14,17 +14,12 @@ const tr = t(lang);
 <section id="Next-dates" class="nextDates" aria-label="Marchés de producteurs">
   <div class="container">
     <h2 class="section-title">{tr.nextDates.title}</h2>
-    <div class="next-dates-grid">
+    <div class="markets-grid">
       {farmerMarkets.map((market) => (
-        <div class="next-dates-item">
-          <svg class="next-dates-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="4.5" width="18" height="16" rx="2" />
-            <path d="M3 9.5h18" />
-            <path d="M8 2.5v4M16 2.5v4" />
-          </svg>
-          <h3>{market.location}</h3>
-          <p class="next-dates-period">{market.period[lang]}</p>
-          <p class="next-dates-desc">{market.description[lang]}</p>
+        <div class="market-cell">
+          <h3 class="market-loc">{market.location}</h3>
+          <span class="market-month">{market.period[lang]}</span>
+          <p class="market-desc">{market.description[lang]}</p>
         </div>
       ))}
     </div>

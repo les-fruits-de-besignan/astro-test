@@ -1,12 +1,13 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T14:17:00Z",
+  "generatedAt": "2026-06-16T16:12:00Z",
   "title": "Design System: Les fruits de Bésignan",
   "extensions": {
     "colorMeta": {
       "verger": { "role": "primary", "displayName": "Vert verger", "canonical": "#007C76", "tonalRamp": ["#02211f", "#033b37", "#055750", "#067067", "#007C76", "#3a9e98", "#7ec4bf", "#bfe4e1", "#e6f7f6"] },
       "verger-profond": { "role": "primary", "displayName": "Vert profond", "canonical": "#0a5955", "tonalRamp": ["#02211f", "#033b37", "#0a5955", "#0c727f", "#3a9e98", "#7ec4bf", "#bfe4e1", "#e6f7f6"] },
       "ocre-soleil": { "role": "secondary", "displayName": "Ocre soleil", "canonical": "#A85D0E", "tonalRamp": ["#2e1903", "#4d2906", "#6e3c0a", "#8c4d0c", "#A85D0E", "#cd7f2c", "#e0a663", "#eccfa3", "#f6e8d4"] },
+      "verger-nuit": { "role": "primary", "displayName": "Vert nuit", "canonical": "#005e59", "tonalRamp": ["#021c1a", "#033330", "#044a45", "#005e59", "#067067", "#3a9e98", "#7ec4bf", "#bfe4e1", "#e6f7f6"] },
       "encre": { "role": "neutral", "displayName": "Encre", "canonical": "#111827", "tonalRamp": ["#111827", "#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f3f4f6", "#f9fafb"] }
     },
     "typographyMeta": {

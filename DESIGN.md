@@ -6,6 +6,7 @@ colors:
   verger-profond: "#0a5955"
   verger-voile: "#e6f7f6"
   verger-brume: "#f2fbfa"
+  verger-nuit: "#005e59"
   ocre-soleil: "#A85D0E"
   blanc: "#ffffff"
   encre: "#111827"
@@ -109,6 +110,7 @@ Une palette ancrée sur un vert profond de feuillage, réchauffée par un ocre d
 - **Vert verger** (`#007C76`) : la couleur d'identité. Logo, titres de section, liens, bouton primaire, ombres teintées. Posée en texte sur blanc, elle atteint 5.07:1 — conforme AA. C'est l'ADN visuel ; elle ne se remplace pas.
 - **Vert profond** (`#0a5955`) : la version foncée pour les survols et pour tout texte vert de petite taille exigeant une marge de contraste confortable (8.16:1 sur blanc).
 - **Voile de verger** (`#e6f7f6`) et **Brume de verger** (`#f2fbfa`) : teintes vert très pâles pour les fonds de section et accents discrets, en remplacement des dégradés teal omniprésents.
+- **Vert nuit** (`#005e59`) : le vert verger approfondi (mix OKLab du primaire vers le noir). Surface des sections « drenchées » qui assument la couleur — actuellement le panneau des marchés. Le blanc dessus dépasse 5:1.
 
 ### Secondary
 - **Ocre soleil** (`#A85D0E`) : l'accent chaud, à dose homéopathique. Réchauffe les moments froids du parcours — CTA secondaire « gourmand », section des prochaines dates, pied de page, bande de clôture. Texte blanc dessus = 4.96:1, et en texte sur blanc = 4.96:1 : utilisable dans les deux sens en AA.
