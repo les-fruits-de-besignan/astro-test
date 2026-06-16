@@ -11,8 +11,13 @@ interface Props {
 const { lang } = Astro.props;
 const tr = t(lang);
 
+const priceFormatter = new Intl.NumberFormat(lang === 'fr' ? 'fr-FR' : 'en-IE', {
+  style: 'currency',
+  currency: 'EUR',
+});
+
 function formatPrice(amount: number): string {
-  return `${amount.toFixed(2).replace('.', ',')} €`;
+  return priceFormatter.format(amount);
 }
 ---
 <section id="produits" class="section">

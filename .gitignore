@@ -134,3 +134,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Impeccable skill (installed/reinstallable via `npx impeccable skills install`)
+.claude/skills/
+.cursor/skills/

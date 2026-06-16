@@ -44,33 +44,42 @@ const tr = t(lang).contact;
           method="POST"
           action="/success"
         >
+          <input type="hidden" name="form-name" value="commande" />
           <input type="hidden" name="bot-field" />
           <input type="hidden" name="lang" value={lang} />
 
           <div class="form-row">
             <div class="form-group">
               <label for="name">{tr.nameLabel}</label>
-              <input id="name" type="text" name="name" placeholder={tr.namePlaceholder} />
+              <input id="name" type="text" name="name" placeholder={tr.namePlaceholder}
+                autocomplete="name" maxlength="80" aria-describedby="name-error" />
+              <p class="field-error" id="name-error" hidden>{tr.formErrors.name}</p>
             </div>
             <div class="form-group">
               <label for="tel">{tr.phoneLabel}</label>
-              <input id="tel" type="tel" name="tel" placeholder={tr.phonePlaceholder} />
+              <input id="tel" type="tel" name="tel" placeholder={tr.phonePlaceholder}
+                inputmode="tel" autocomplete="tel" maxlength="25" pattern="[0-9+().\s-]{6,25}"
+                aria-describedby="tel-error" />
+              <p class="field-error" id="tel-error" hidden>{tr.formErrors.phone}</p>
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">{tr.emailLabel} <span class="required">*</span></label>
-            <input id="email" type="email" name="email" placeholder={tr.emailPlaceholder} required />
+            <input id="email" type="email" name="email" placeholder={tr.emailPlaceholder}
+              autocomplete="email" maxlength="120" required aria-describedby="email-error" />
+            <p class="field-error" id="email-error" hidden>{tr.formErrors.email}</p>
           </div>
 
           <div class="form-group">
             <label for="delivery">{tr.deliveryLabel} <span class="required">*</span></label>
-            <select id="delivery" name="delivery" required>
+            <select id="delivery" name="delivery" required aria-describedby="delivery-error">
               <option value="" disabled selected>{tr.deliveryPlaceholder}</option>
               <option value="ferme">{tr.deliveryFarm}</option>
               <option value="livraison">{tr.deliveryHome}</option>
               <option value="marché">{tr.deliveryMarket}</option>
             </select>
+            <p class="field-error" id="delivery-error" hidden>{tr.formErrors.delivery}</p>
           </div>
 
           <fieldset class="form-fieldset">
@@ -91,17 +100,135 @@ const tr = t(lang).contact;
 
           <div class="form-group">
             <label for="message">{tr.messageLabel} <span class="required">*</span></label>
-            <textarea id="message" name="message" placeholder={tr.messagePlaceholder} required></textarea>
+            <textarea id="message" name="message" placeholder={tr.messagePlaceholder}
+              maxlength="2000" required aria-describedby="message-error"></textarea>
+            <p class="field-error" id="message-error" hidden>{tr.formErrors.message}</p>
           </div>
 
-          <label class="checkbox-label rgpd-label">
-            <input type="checkbox" name="rgpd" value="rgpd" required />
-            {tr.rgpd} <span class="required">*</span>
-          </label>
+          <div class="form-group">
+            <label class="checkbox-label rgpd-label">
+              <input type="checkbox" name="rgpd" value="rgpd" required aria-describedby="rgpd-error" />
+              {tr.rgpd} <span class="required">*</span>
+            </label>
+            <p class="field-error" id="rgpd-error" hidden>{tr.formErrors.consent}</p>
+          </div>
 
-          <button type="submit" class="submit-button">{tr.submit}</button>
+          <div class="form-actions">
+            <button type="submit" class="submit-button primary-button">
+              <span class="submit-label">{tr.submit}</span>
+              <span class="submit-spinner" aria-hidden="true"></span>
+            </button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
         </form>
+
+        <div class="form-success" role="alert" tabindex="-1" hidden>
+          <span class="form-success-icon" aria-hidden="true">✓</span>
+          <h3>{tr.formStatus.successTitle}</h3>
+          <p>{tr.formStatus.successBody}</p>
+        </div>
       </div>
+
+      <script
+        is:inline
+        define:vars={{
+          errors: tr.formErrors,
+          statusLabels: tr.formStatus,
+        }}
+      >
+        const form = document.querySelector(".contact-form");
+        const success = document.querySelector(".form-success");
+        if (form && success) {
+          // JS available: take over native validation so we can show styled, localized inline errors.
+          form.setAttribute("novalidate", "");
+
+          const statusEl = form.querySelector(".form-status");
+          const button = form.querySelector(".submit-button");
+          let submitted = false;
+
+          const errorMessage = (field) => {
+            const v = field.validity;
+            if (v.valueMissing) {
+              if (field.name === "delivery") return errors.delivery;
+              if (field.name === "rgpd") return errors.consent;
+              if (field.name === "email") return errors.email;
+              if (field.name === "message") return errors.message;
+              return errors.name;
+            }
+            if (v.typeMismatch && field.type === "email") return errors.email;
+            if ((v.patternMismatch || v.tooLong) && field.type === "tel") return errors.phone;
+            if (v.tooLong && field.name === "name") return errors.name;
+            return errors.message;
+          };
+
+          const setFieldState = (field) => {
+            const errorEl = field.getAttribute("aria-describedby")
+              ? document.getElementById(field.getAttribute("aria-describedby"))
+              : null;
+            if (field.checkValidity()) {
+              field.removeAttribute("aria-invalid");
+              if (errorEl) errorEl.hidden = true;
+              return true;
+            }
+            field.setAttribute("aria-invalid", "true");
+            if (errorEl) {
+              errorEl.textContent = errorMessage(field);
+              errorEl.hidden = false;
+            }
+            return false;
+          };
+
+          const setStatus = (text, kind) => {
+            statusEl.textContent = text || "";
+            statusEl.dataset.kind = kind || "";
+          };
+
+          // Re-validate a field on blur/change once the user has tried to submit.
+          form.querySelectorAll("input, select, textarea").forEach((field) => {
+            const revalidate = () => { if (submitted) setFieldState(field); };
+            field.addEventListener("blur", revalidate);
+            field.addEventListener("change", revalidate);
+          });
+
+          form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            submitted = true;
+
+            const fields = [...form.querySelectorAll("input, select, textarea")];
+            let firstInvalid = null;
+            fields.forEach((field) => {
+              if (!setFieldState(field) && !firstInvalid) firstInvalid = field;
+            });
+            if (firstInvalid) {
+              setStatus(errors.invalid, "error");
+              firstInvalid.focus();
+              return;
+            }
+
+            button.disabled = true;
+            button.classList.add("is-loading");
+            setStatus(statusLabels.sending, "sending");
+
+            try {
+              const body = new URLSearchParams(new FormData(form)).toString();
+              const response = await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body,
+              });
+              if (!response.ok) throw new Error("HTTP " + response.status);
+              form.hidden = true;
+              success.hidden = false;
+              success.focus?.();
+            } catch (err) {
+              setStatus(statusLabels.errorTitle + " — " + statusLabels.errorBody, "error");
+            } finally {
+              button.disabled = false;
+              button.classList.remove("is-loading");
+            }
+          });
+        }
+      </script>
     </div>
   </div>
 </section>

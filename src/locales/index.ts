@@ -3,6 +3,7 @@ export type LocaleString = Record<Lang, string>;
 
 type Translations = {
   nav: {
+    skipLink: string;
     products: string;
     season: string;
     benefits: string;
@@ -54,6 +55,23 @@ type Translations = {
     messagePlaceholder: string;
     rgpd: string;
     submit: string;
+    formErrors: {
+      name: string;
+      phone: string;
+      email: string;
+      delivery: string;
+      message: string;
+      consent: string;
+      invalid: string;
+    };
+    formStatus: {
+      sending: string;
+      successTitle: string;
+      successBody: string;
+      errorTitle: string;
+      errorBody: string;
+      retry: string;
+    };
   };
   footer: { rights: string };
 };
@@ -61,6 +79,7 @@ type Translations = {
 const locales: Record<Lang, Translations> = {
   fr: {
     nav: {
+      skipLink: "Aller au contenu principal",
       products: "Nos Produits",
       season: "En cette Saison",
       benefits: "Avantages",
@@ -112,11 +131,29 @@ const locales: Record<Lang, Translations> = {
       messagePlaceholder: "Décrivez votre commande : produits, quantités, dates souhaitées…",
       rgpd: "J'accepte que mes coordonnées soient utilisées pour être recontacté(e)",
       submit: "Envoyer ma commande",
+      formErrors: {
+        name: "Merci d'indiquer un nom (80 caractères maximum).",
+        phone: "Saisissez un numéro valide (chiffres, espaces et + uniquement).",
+        email: "Saisissez une adresse email valide, par exemple marie@exemple.fr.",
+        delivery: "Choisissez un mode de récupération.",
+        message: "Décrivez votre demande pour qu'on puisse y répondre.",
+        consent: "Cochez cette case pour que l'on puisse vous recontacter.",
+        invalid: "Veuillez corriger les champs indiqués avant d'envoyer.",
+      },
+      formStatus: {
+        sending: "Envoi en cours…",
+        successTitle: "Merci, votre demande est partie !",
+        successBody: "On revient vers vous très vite. À bientôt à la ferme ou sur les marchés.",
+        errorTitle: "L'envoi a échoué",
+        errorBody: "Vérifiez votre connexion et réessayez, ou écrivez-nous directement à gaecduvieuxchateau@gmail.com.",
+        retry: "Réessayer",
+      },
     },
     footer: { rights: "Tous droits réservés." },
   },
   en: {
     nav: {
+      skipLink: "Skip to main content",
       products: "Our Products",
       season: "This Season",
       benefits: "Why Us",
@@ -168,6 +205,23 @@ const locales: Record<Lang, Translations> = {
       messagePlaceholder: "Describe your order: products, quantities, preferred dates…",
       rgpd: "I agree that my contact details may be used to get back to me",
       submit: "Send my order",
+      formErrors: {
+        name: "Please enter a name (80 characters maximum).",
+        phone: "Enter a valid phone number (digits, spaces and + only).",
+        email: "Enter a valid email address, for example jane@example.com.",
+        delivery: "Choose a pick-up method.",
+        message: "Describe your request so we can reply.",
+        consent: "Please tick this box so we can get back to you.",
+        invalid: "Please fix the highlighted fields before sending.",
+      },
+      formStatus: {
+        sending: "Sending…",
+        successTitle: "Thanks, your request is on its way!",
+        successBody: "We'll get back to you very soon. See you at the farm or at the markets.",
+        errorTitle: "Sending failed",
+        errorBody: "Please check your connection and try again, or email us directly at gaecduvieuxchateau@gmail.com.",
+        retry: "Try again",
+      },
     },
     footer: { rights: "All rights reserved." },
   },

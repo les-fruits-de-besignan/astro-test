@@ -1,21 +1,8 @@
 /* Sales Points Section Styles */
-.section {
-  padding: 4rem 0;
+/* Scoped to #SalesPoints so it doesn't redefine the global .section/.container/.section-title. */
+#SalesPoints.section {
+  padding: 4rem 2rem;
   background: var(--color-white);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.section-title {
-  text-align: center;
-  color: var(--color-primary);
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  font-weight: 600;
 }
 
 .sales-points-grid {
@@ -36,7 +23,7 @@
 }
 
 .sales-point-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   box-shadow: 0 8px 32px var(--color-shadow-primary);
   border-color: var(--color-primary);
 }
