@@ -11,15 +11,15 @@ interface Props {
 const { lang } = Astro.props;
 const tr = t(lang);
 ---
-<section id="SalesPoints" class="section">
+<section id="SalesPoints" class="salesPoints" aria-label="Points de vente">
   <div class="container">
     <h2 class="section-title">{tr.salesPoints.title}</h2>
-    <div class="sales-points-grid">
+    <div class="sales-grid">
       {salesChannels.map((channel) => (
-        <div class="sales-point-card">
-          <h3>{channel.name[lang]}</h3>
+        <div class="sales-cell">
+          <h3 class="sales-name">{channel.name[lang]}</h3>
           {channel.details.map((detail) => (
-            <div class="sales-point-detail">{detail[lang]}</div>
+            <p class="sales-detail">{detail[lang]}</p>
           ))}
         </div>
       ))}

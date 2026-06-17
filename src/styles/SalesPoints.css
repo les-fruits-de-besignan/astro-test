@@ -1,69 +1,62 @@
-/* Sales Points Section Styles */
-/* Scoped to #SalesPoints so it doesn't redefine the global .section/.container/.section-title. */
-#SalesPoints.section {
-  padding: 4rem 2rem;
-  background: var(--color-white);
-}
-
-.sales-points-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.sales-point-card {
-  background: var(--color-white);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px var(--color-shadow-secondary);
-  border: 1px solid var(--color-border);
-  transition: all 0.3s ease;
+/* Sales Points — same drenched orchard-green field as NextDates */
+.salesPoints {
+  background: var(--color-verger-nuit, #005e59);
+  color: var(--color-white);
   text-align: center;
+  padding: 5rem 2rem;
 }
 
-.sales-point-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px var(--color-shadow-primary);
-  border-color: var(--color-primary);
+.salesPoints .section-title {
+  color: var(--color-white);
 }
 
-.sales-point-card h3 {
-  color: var(--color-primary);
-  font-size: 1.25rem;
+.sales-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sales-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1.25rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sales-cell:last-child {
+  border-right: none;
+}
+
+.sales-name {
+  margin: 0 0 0.25rem;
+  color: var(--color-white);
+  font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 1rem;
-  line-height: 1.4;
 }
 
-.sales-point-detail {
-  color: var(--color-text-secondary);
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+.sales-detail {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
-.sales-point-detail:last-child {
-  margin-bottom: 0;
-}
-
-/* Responsive Design */
+/* Tablet & mobile: columns stack, dividers turn horizontal */
 @media screen and (max-width: 768px) {
-  .section {
-    padding: 3rem 0;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .sales-points-grid {
+  .sales-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    max-width: 420px;
   }
-  
-  .sales-point-card {
-    padding: 1.5rem;
+
+  .sales-cell {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
-} 
+
+  .sales-cell:last-child {
+    border-bottom: none;
+  }
+}
