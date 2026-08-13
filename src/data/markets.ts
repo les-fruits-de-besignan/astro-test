@@ -9,6 +9,9 @@ export type Market = {
 export type SalesChannel = {
   name: LocaleString;
   details: LocaleString[];
+  // Channels reached by calling ahead show the farm's phone number (see
+  // data/contact.ts) as a dialable link under their details.
+  showPhone?: boolean;
 };
 
 export const farmerMarkets: Market[] = [
@@ -36,6 +39,7 @@ export const salesChannels: SalesChannel[] = [
       { fr: "Contactez-nous si possible avant, nous sommes jamais très loin", en: "Please contact us beforehand if possible, we're never far" },
       { fr: "Ouvert toute l'année", en: "Open year-round" },
     ],
+    showPhone: true,
   },
   {
     name: { fr: "Marchés", en: "Markets" },

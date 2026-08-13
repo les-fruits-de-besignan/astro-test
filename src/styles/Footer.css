@@ -15,6 +15,33 @@
 	margin: 0 0 0.4rem;
 }
 
+/* Last chance to reach us before the page ends. */
+.footer-phone {
+	margin: 0 0 0.9rem;
+}
+
+.footer-phone a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-white);
+	font-size: 1.05rem;
+	font-weight: 600;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.footer-phone a:hover {
+	text-decoration: underline;
+}
+
+/* The global focus ring is brand green — invisible on this green field. */
+.footer-phone a:focus-visible {
+	outline: 3px solid var(--color-white);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
 .footer-copyright {
 	font-size: 0.9rem;
 	color: var(--color-white);

@@ -3,6 +3,7 @@ import '../styles/SalesPoints.css';
 import type { Lang } from '../locales';
 import { t } from '../locales';
 import { salesChannels } from '../data/markets';
+import { farmContact } from '../data/contact';
 
 interface Props {
   lang: Lang;
@@ -21,6 +22,16 @@ const tr = t(lang);
           {channel.details.map((detail) => (
             <p class="sales-detail">{detail[lang]}</p>
           ))}
+          {channel.showPhone && (
+            <a
+              class="sales-phone"
+              href={farmContact.phoneHref}
+              aria-label={`${tr.contact.phoneAriaLabel} ${farmContact.phone}`}
+            >
+              <span class="sales-phone-icon" aria-hidden="true">📞</span>
+              {farmContact.phone}
+            </a>
+          )}
         </div>
       ))}
     </div>

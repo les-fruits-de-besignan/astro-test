@@ -3,6 +3,7 @@ import '../styles/Contact.css';
 import type { Lang } from '../locales';
 import { t } from '../locales';
 import { productCatalog } from '../data/products';
+import { farmContact } from '../data/contact';
 
 interface Props {
   lang: Lang;
@@ -22,6 +23,10 @@ const orderableProducts = productCatalog.flatMap((category) => category.products
 
       <div class="contact-info">
         <h3>{tr.contactTitle}</h3>
+        <div class="contact-info-item">
+          <span class="contact-info-icon" aria-hidden="true">📞</span>
+          <a class="contact-info-phone" href={farmContact.phoneHref} aria-label={`${tr.phoneAriaLabel} ${farmContact.phone}`}>{farmContact.phone}</a>
+        </div>
         <div class="contact-info-item">
           <span class="contact-info-icon" aria-hidden="true">📧</span>
           <a href="mailto:gaecduvieuxchateau@gmail.com">gaecduvieuxchateau@gmail.com</a>

@@ -36,6 +36,9 @@ type Translations = {
     contactTitle: string;
     address: string;
     instagramAriaLabel: string;
+    // Prefixes the phone number to build an accessible label. Shared by the
+    // contact panel, the "at the farm" sales cell and the footer.
+    phoneAriaLabel: string;
     nameLabel: string;
     namePlaceholder: string;
     phoneLabel: string;
@@ -109,6 +112,7 @@ const locales: Record<Lang, Translations> = {
       contactTitle: "Contactez-nous",
       address: "Bésignan, 26110, Drôme",
       instagramAriaLabel: "Instagram — ouvre dans un nouvel onglet",
+      phoneAriaLabel: "Nous appeler au",
       nameLabel: "Votre nom et prénom",
       namePlaceholder: "Marie Dupont",
       phoneLabel: "Votre téléphone",
@@ -183,6 +187,7 @@ const locales: Record<Lang, Translations> = {
       contactTitle: "Contact us",
       address: "Bésignan, 26110, Drôme, France",
       instagramAriaLabel: "Instagram — opens in a new tab",
+      phoneAriaLabel: "Call us at",
       nameLabel: "Your name",
       namePlaceholder: "Jane Smith",
       phoneLabel: "Your phone",

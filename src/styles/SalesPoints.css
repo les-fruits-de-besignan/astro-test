@@ -44,6 +44,39 @@
   line-height: 1.5;
 }
 
+/* "Contact us beforehand" is only useful if it can be acted on — an outlined
+   pill reads as an action without competing with the section title. */
+.sales-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  color: var(--color-white);
+  font-size: 1.05rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.sales-phone:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--color-white);
+}
+
+/* The global focus ring is brand green — invisible on this green field. */
+.sales-phone:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+.sales-phone-icon {
+  font-size: 1rem;
+}
+
 /* Tablet & mobile: columns stack, dividers turn horizontal */
 @media screen and (max-width: 768px) {
   .sales-grid {

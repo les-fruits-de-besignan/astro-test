@@ -2,6 +2,7 @@
 import '../styles/Footer.css';
 import type { Lang } from '../locales';
 import { t } from '../locales';
+import { farmContact } from '../data/contact';
 
 interface Props {
   lang: Lang;
@@ -13,6 +14,15 @@ const tr = t(lang);
 <footer class="footer">
   <div class="container">
     <p class="footer-signoff">{tr.footer.signoff}</p>
+    <p class="footer-phone">
+      <a
+        href={farmContact.phoneHref}
+        aria-label={`${tr.contact.phoneAriaLabel} ${farmContact.phone}`}
+      >
+        <span aria-hidden="true">📞</span>
+        {farmContact.phone}
+      </a>
+    </p>
     <p class="footer-copyright">&copy; {new Date().getFullYear()} Les fruits de Bésignan. {tr.footer.rights}</p>
   </div>
 </footer>

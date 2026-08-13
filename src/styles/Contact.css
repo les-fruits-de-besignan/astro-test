@@ -42,6 +42,14 @@
   text-decoration: underline;
 }
 
+/* The break-all above is for the long email — a phone number must stay in one
+   piece, and its groups of digits are the reading unit. */
+.contact-info-phone {
+  word-break: normal;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
 .contact-info-icon {
   font-size: 1.2rem;
   flex-shrink: 0;
