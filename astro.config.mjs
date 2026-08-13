@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
-// ⚠️ Remplacez par votre vrai domaine avant de déployer
-const SITE_URL = 'https://www.lesfruitsdebésignan.fr';
+const SITE_URL = 'https://www.lesfruitsdebesignan.com';
 
 export default defineConfig({
   site: SITE_URL,
