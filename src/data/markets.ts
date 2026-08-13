@@ -37,7 +37,8 @@ export const salesChannels: SalesChannel[] = [
     name: { fr: "À la ferme", en: "At the farm" },
     details: [
       { fr: "Contactez-nous si possible avant, nous sommes jamais très loin", en: "Please contact us beforehand if possible, we're never far" },
-      { fr: "Ouvert toute l'année", en: "Open year-round" },
+      // Must match `opens`/`closes` in data/contact.ts, which feeds the structured data.
+      { fr: "Ouvert toute l'année, tous les jours de 8h à 19h", en: "Open year-round, every day from 8am to 7pm" },
     ],
     showPhone: true,
   },

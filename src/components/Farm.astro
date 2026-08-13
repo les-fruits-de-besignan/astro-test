@@ -1,0 +1,31 @@
+---
+import '../styles/Farm.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang).farm;
+---
+<section id="ferme" class="section farm" aria-labelledby="farm-title">
+  <div class="container farm-layout">
+
+    <!-- The founding year carries the visual weight of this column for now; it is
+         where a photograph of Alain and Aurélien belongs once one is available. -->
+    <div class="farm-stamp">
+      <span class="farm-since-label">{tr.sinceLabel}</span>
+      <span class="farm-since-year">{tr.since}</span>
+    </div>
+
+    <div class="farm-story">
+      <h2 id="farm-title" class="farm-title">{tr.title}</h2>
+      {tr.paragraphs.map((paragraph) => (
+        <p class="farm-paragraph">{paragraph}</p>
+      ))}
+    </div>
+
+  </div>
+</section>

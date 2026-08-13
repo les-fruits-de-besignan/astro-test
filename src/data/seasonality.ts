@@ -14,6 +14,10 @@ export const seasonalItems: SeasonalItem[] = [
     name: { fr: "Abricots", en: "Apricots" },
     details: { fr: "Juin – juillet", en: "June – July" },
   },
+  {
+    name: { fr: "Prunes reine-claude", en: "Reine-claude plums" },
+    details: { fr: "Août – septembre", en: "August – September" },
+  },
   //{ name: { fr: "Poires", en: "Pears" }, details: { fr: "Septembre", en: "September" } },
   //{ name: { fr: "Coings", en: "Quinces" }, details: { fr: "Octobre", en: "October" } },
   //{ name: { fr: "Amandes", en: "Almonds" }, details: { fr: "Variétés Feragnès, Feraduel et Lauranne", en: "Varieties Feragnès, Feraduel and Lauranne" } },

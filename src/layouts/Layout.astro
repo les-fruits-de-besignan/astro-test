@@ -1,6 +1,7 @@
 ---
 import type { Lang } from '../locales';
 import { t } from '../locales';
+import { farmContact } from '../data/contact';
 
 interface Props {
   lang: Lang;
@@ -20,6 +21,18 @@ const jsonLd = {
   "description": tr.layout.description,
   "url": SITE_URL,
   "email": "gaecduvieuxchateau@gmail.com",
+  "telephone": farmContact.phoneE164,
+  // The farm sells year-round, so one 8am–7pm span covers every day. This is what
+  // fills the "Opening hours" row of Google's local panel.
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday", "Tuesday", "Wednesday", "Thursday",
+      "Friday", "Saturday", "Sunday"
+    ],
+    "opens": farmContact.opens,
+    "closes": farmContact.closes
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Bésignan",

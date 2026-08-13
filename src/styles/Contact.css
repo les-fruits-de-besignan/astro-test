@@ -55,6 +55,47 @@
   flex-shrink: 0;
 }
 
+/* Answers "can I actually buy from here?" right beside the pick-up selector. */
+.contact-terms {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-primary);
+}
+
+.contact-terms h4 {
+  margin: 0 0 0.75rem;
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.contact-terms ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.contact-terms li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.contact-terms li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
 .social-links {
   margin-top: 2rem;
   display: flex;
@@ -103,6 +144,13 @@
 
 .required {
   color: var(--color-primary);
+}
+
+/* Said out loud on the one long field, so it doesn't read as a wall to fill in. */
+.optional {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  font-size: 0.875rem;
 }
 
 .contact-form input[type="text"],

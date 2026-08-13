@@ -40,6 +40,7 @@ export const productCatalog: ProductCategory[] = [
         seasonItems: [
           { fr: "Cerises — juin", en: "Cherries — June" },
           { fr: "Abricots — juin / juillet", en: "Apricots — June / July" },
+          { fr: "Prunes reine-claude — août / septembre", en: "Reine-claude plums — August / September" },
           { fr: "Poires — septembre", en: "Pears — September" },
           { fr: "Coings — octobre", en: "Quinces — October" },
         ],
