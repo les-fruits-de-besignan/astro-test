@@ -63,9 +63,14 @@
   transition: background-color 0.2s, border-color 0.2s;
 }
 
+/* Inverts to a filled pill: the clearest possible signal that it is clickable,
+   and 7.65:1 of contrast. The colour must be stated here, not inherited — the
+   global `a:hover` rule sets a dark green that vanished on this dark green field.
+   The icon follows automatically through currentColor. */
 .sales-phone:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--color-white);
   border-color: var(--color-white);
+  color: var(--color-verger-nuit, #005e59);
 }
 
 /* The global focus ring is brand green — invisible on this green field. */

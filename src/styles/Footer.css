@@ -31,7 +31,10 @@
 	text-decoration: none;
 }
 
+/* Colour restated on purpose: the global `a:hover` rule would turn this dark
+   green, which is unreadable on the green footer. */
 .footer-phone a:hover {
+	color: var(--color-white);
 	text-decoration: underline;
 }
 
@@ -69,6 +72,7 @@
 }
 
 .footer-pro a:hover {
+	color: var(--color-white);
 	text-decoration: none;
 }
 
