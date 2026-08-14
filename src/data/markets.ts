@@ -1,11 +1,5 @@
 import type { LocaleString } from '../locales';
 
-export type Market = {
-  location: string;
-  period: LocaleString;
-  description: LocaleString;
-};
-
 export type SalesChannel = {
   name: LocaleString;
   details: LocaleString[];
@@ -14,29 +8,13 @@ export type SalesChannel = {
   showPhone?: boolean;
 };
 
-export const farmerMarkets: Market[] = [
-  {
-    location: "Bésignan",
-    period: { fr: "Juillet", en: "July" },
-    description: { fr: "Marché de producteurs local", en: "Local farmers' market" },
-  },
-  {
-    location: "Séderon",
-    period: { fr: "Juin à août", en: "June to August" },
-    description: { fr: "Marché de producteurs local", en: "Local farmers' market" },
-  },
-  {
-    location: "Serres",
-    period: { fr: "21 mars – fin décembre", en: "March 21 – end of December" },
-    description: { fr: "Marché de producteurs local", en: "Local farmers' market" },
-  },
-];
-
+// The one place the market calendar lives, now that "Où nous trouver" is the only
+// section listing it. Longest season first — that is what a customer can act on today.
 export const salesChannels: SalesChannel[] = [
   {
     name: { fr: "À la ferme", en: "At the farm" },
     details: [
-      { fr: "Contactez-nous si possible avant, nous sommes jamais très loin", en: "Please contact us beforehand if possible, we're never far" },
+      { fr: "Contactez-nous si possible avant, nous ne sommes jamais très loin", en: "Please contact us beforehand if possible, we're never far" },
       // Must match `opens`/`closes` in data/contact.ts, which feeds the structured data.
       { fr: "Ouvert toute l'année, tous les jours de 8h à 19h", en: "Open year-round, every day from 8am to 7pm" },
     ],
@@ -45,8 +23,8 @@ export const salesChannels: SalesChannel[] = [
   {
     name: { fr: "Marchés", en: "Markets" },
     details: [
-      { fr: "Serres (05) de mars à décembre", en: "Serres (05) from March to December" },
-      { fr: "Séderon (26) de juin à août", en: "Séderon (26) from June to August" },
+      { fr: "Serres (05) — du 21 mars à fin décembre", en: "Serres (05) — 21 March to end of December" },
+      { fr: "Séderon (26) — de juin à août", en: "Séderon (26) — June to August" },
     ],
   },
   {

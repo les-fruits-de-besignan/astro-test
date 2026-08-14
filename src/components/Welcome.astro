@@ -9,7 +9,6 @@ import SalesPoints from './SalesPoints.astro';
 import SeasonOffer from './SeasonOffer.astro';
 import Contact from './Contact.astro';
 import Footer from './Footer.astro';
-import NextDates from './NextDates.astro';
 
 import '../styles/global.css';
 
@@ -24,12 +23,11 @@ const { lang } = Astro.props;
   <NavBar lang={lang} />
   <main id="main-content">
     <Hero lang={lang} />
+    <SalesPoints lang={lang} />
     <Products lang={lang} />
-    <NextDates lang={lang} />
     <SeasonOffer lang={lang} />
     <Farm lang={lang} />
     <Benefits lang={lang} />
-    <SalesPoints lang={lang} />
     <Contact lang={lang} />
   </main>
   <Footer lang={lang} />

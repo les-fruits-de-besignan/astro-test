@@ -27,7 +27,6 @@ type Translations = {
     title: string;
     orderCta: string;
   };
-  nextDates: { title: string };
   seasonOffer: { title: string };
   benefits: { title: string };
   farm: {
@@ -117,7 +116,6 @@ const locales: Record<Lang, Translations> = {
       title: "Nos Produits d'Exception",
       orderCta: "Commander",
     },
-    nextDates: { title: "Marchés de producteurs" },
     seasonOffer: { title: "Nos Fruits de Saison" },
     benefits: { title: "Pourquoi Choisir Nos Produits ?" },
     farm: {
@@ -131,7 +129,7 @@ const locales: Record<Lang, Translations> = {
         "Vous vous demandez peut-être d'où vient « le vieux château » ? Notre ferme comprend les anciennes terres du marquis de Bésignan, aux abords du château.",
       ],
     },
-    salesPoints: { title: "Nos Points de Ventes" },
+    salesPoints: { title: "Où nous trouver" },
     contact: {
       sectionTitle: "Commandez Maintenant",
       contactTitle: "Contactez-nous",
@@ -221,7 +219,6 @@ const locales: Record<Lang, Translations> = {
       title: "Our Exceptional Products",
       orderCta: "Order",
     },
-    nextDates: { title: "Farmers' Markets" },
     seasonOffer: { title: "Our Seasonal Fruits" },
     benefits: { title: "Why Choose Our Products?" },
     farm: {

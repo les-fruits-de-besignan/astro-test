@@ -1,4 +1,5 @@
-/* Sales Points — same drenched orchard-green field as NextDates */
+/* "Où nous trouver" — the single answer to where and when you can buy:
+   at the farm, at the markets, at the seasonal fairs. Drenched orchard green. */
 .salesPoints {
   background: var(--color-verger-nuit, #005e59);
   color: var(--color-white);

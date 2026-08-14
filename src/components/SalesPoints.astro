@@ -12,9 +12,9 @@ interface Props {
 const { lang } = Astro.props;
 const tr = t(lang);
 ---
-<section id="SalesPoints" class="salesPoints" aria-label="Points de vente">
+<section id="SalesPoints" class="salesPoints" aria-labelledby="salespoints-title">
   <div class="container">
-    <h2 class="section-title">{tr.salesPoints.title}</h2>
+    <h2 id="salespoints-title" class="section-title">{tr.salesPoints.title}</h2>
     <div class="sales-grid">
       {salesChannels.map((channel) => (
         <div class="sales-cell">
