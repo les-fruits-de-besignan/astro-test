@@ -74,8 +74,9 @@
   outline-offset: 3px;
 }
 
+/* Inherits the link's white via currentColor — see components/PhoneIcon.astro. */
 .sales-phone-icon {
-  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 /* Tablet & mobile: columns stack, dividers turn horizontal */

@@ -35,6 +35,11 @@
 	text-decoration: underline;
 }
 
+/* Inherits the link's white via currentColor — see components/PhoneIcon.astro. */
+.footer-phone svg {
+	flex-shrink: 0;
+}
+
 /* The global focus ring is brand green — invisible on this green field. */
 .footer-phone a:focus-visible {
 	outline: 3px solid var(--color-white);

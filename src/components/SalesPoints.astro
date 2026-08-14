@@ -4,6 +4,7 @@ import type { Lang } from '../locales';
 import { t } from '../locales';
 import { salesChannels } from '../data/markets';
 import { farmContact } from '../data/contact';
+import PhoneIcon from './PhoneIcon.astro';
 
 interface Props {
   lang: Lang;
@@ -28,7 +29,7 @@ const tr = t(lang);
               href={farmContact.phoneHref}
               aria-label={`${tr.contact.phoneAriaLabel} ${farmContact.phone}`}
             >
-              <span class="sales-phone-icon" aria-hidden="true">📞</span>
+              <PhoneIcon class="sales-phone-icon" />
               {farmContact.phone}
             </a>
           )}
