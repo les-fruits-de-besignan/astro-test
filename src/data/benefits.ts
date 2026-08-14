@@ -25,10 +25,12 @@ export const benefits: Benefit[] = [
   },
   {
     emoji: "🚚",
-    title: { fr: "Livraison ou Retrait", en: "Delivery or Pick-up" },
+    // Pick-up leads: it is what applies to every visitor. Home delivery is a
+    // trade-only channel (see the `terms` list in locales/index.ts).
+    title: { fr: "Retrait ou Livraison", en: "Pick-up or Delivery" },
     description: {
-      fr: "Livraison à domicile sur demande ou retrait à la ferme ou sur nos points de vente.",
-      en: "Home delivery on request or pick-up at the farm or at our sales points.",
+      fr: "Retrait à la ferme ou sur nos points de vente. Livraison à domicile pour les professionnels.",
+      en: "Pick-up at the farm or at our sales points. Home delivery for trade customers.",
     },
   },
   {

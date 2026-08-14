@@ -10,6 +10,11 @@ interface Props {
 
 const { lang } = Astro.props;
 const tr = t(lang);
+
+// A direct mail with the subject already filled in, rather than a link to a
+// /professionnels page that does not exist yet. Swap the href for that page's
+// path once it is written — the copy here needs no change.
+const proMailto = `mailto:${farmContact.email}?subject=${encodeURIComponent(tr.footer.proMailSubject)}`;
 ---
 <footer class="footer">
   <div class="container">
@@ -22,6 +27,10 @@ const tr = t(lang);
         <span aria-hidden="true">📞</span>
         {farmContact.phone}
       </a>
+    </p>
+    <p class="footer-pro">
+      <span class="footer-pro-question">{tr.footer.proQuestion}</span>
+      <a href={proMailto}>{tr.footer.proCta}</a>
     </p>
     <p class="footer-copyright">&copy; {new Date().getFullYear()} Les fruits de Bésignan. {tr.footer.rights}</p>
   </div>

@@ -84,7 +84,15 @@ type Translations = {
     };
   };
   successPage: { backHome: string };
-  footer: { signoff: string; rights: string };
+  footer: {
+    signoff: string;
+    rights: string;
+    // Trade entry point. Conventionally lives in the footer, and deliberately not
+    // in the navbar — a B2B link there blurs the message for retail visitors.
+    proQuestion: string;
+    proCta: string;
+    proMailSubject: string;
+  };
 };
 
 const locales: Record<Lang, Translations> = {
@@ -146,7 +154,7 @@ const locales: Record<Lang, Translations> = {
       deliveryLabel: "Mode de récupération",
       deliveryPlaceholder: "Choisissez une option…",
       deliveryFarm: "Venir à la ferme",
-      deliveryHome: "Livraison à domicile",
+      deliveryHome: "Livraison à domicile (professionnels)",
       deliveryMarket: "Récupération sur les marchés",
       productsLegend: "Produits souhaités",
       messageLabel: "Votre demande",
@@ -156,12 +164,12 @@ const locales: Record<Lang, Translations> = {
       submit: "Envoyer ma commande",
       optionalHint: "(optionnel)",
       termsTitle: "Livraison & retrait",
-      // ⚠️ À CONFIRMER avant mise en ligne : rayon, seuil de franco, montant des
-      // frais et délai. Les valeurs ci-dessous sont des propositions.
+      // Conditions validées par la ferme. Toute modification ici doit être
+      // répercutée sur la liste `terms` anglaise plus bas.
       terms: [
         "Retrait à la ferme ou sur nos marchés : sans frais ni minimum de commande.",
-        "Livraison à domicile dans un rayon de 30 km autour de Bésignan (Drôme et Hautes-Alpes).",
-        "Frais de livraison : 5 €, offerts à partir de 40 € de commande.",
+        "Livraison à domicile pour les professionnels.",
+        "Frais de livraison : à partir de 5 €.",
         "Comptez 3 à 5 jours entre votre commande et la remise de votre panier.",
       ],
       formErrors: {
@@ -190,6 +198,9 @@ const locales: Record<Lang, Translations> = {
     footer: {
       signoff: "À bientôt à la ferme ou sur les marchés",
       rights: "Tous droits réservés.",
+      proQuestion: "Épicerie, restaurant, gîte ?",
+      proCta: "Demandez nos tarifs professionnels",
+      proMailSubject: "Demande de tarifs professionnels",
     },
   },
   en: {
@@ -250,7 +261,7 @@ const locales: Record<Lang, Translations> = {
       deliveryLabel: "Pick-up method",
       deliveryPlaceholder: "Choose an option…",
       deliveryFarm: "Visit the farm",
-      deliveryHome: "Home delivery",
+      deliveryHome: "Home delivery (trade)",
       deliveryMarket: "Pick up at a market",
       productsLegend: "Desired products",
       messageLabel: "Your request",
@@ -262,8 +273,8 @@ const locales: Record<Lang, Translations> = {
       termsTitle: "Delivery & pick-up",
       terms: [
         "Pick-up at the farm or at our markets: no fee, no minimum order.",
-        "Home delivery within 30 km of Bésignan (Drôme and Hautes-Alpes).",
-        "Delivery fee: €5, free on orders over €40.",
+        "Home delivery for trade customers.",
+        "Delivery fee: from €5.",
         "Allow 3 to 5 days between your order and collection.",
       ],
       formErrors: {
@@ -290,6 +301,9 @@ const locales: Record<Lang, Translations> = {
     footer: {
       signoff: "See you at the farm or at the markets",
       rights: "All rights reserved.",
+      proQuestion: "A shop, restaurant or guesthouse?",
+      proCta: "Ask for our trade prices",
+      proMailSubject: "Trade price enquiry",
     },
   },
 };

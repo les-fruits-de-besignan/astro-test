@@ -33,7 +33,7 @@ const orderableProducts = productCatalog.flatMap((category) => category.products
         </div>
         <div class="contact-info-item">
           <span class="contact-info-icon" aria-hidden="true">📧</span>
-          <a href="mailto:gaecduvieuxchateau@gmail.com">gaecduvieuxchateau@gmail.com</a>
+          <a href={`mailto:${farmContact.email}`}>{farmContact.email}</a>
         </div>
         <div class="contact-info-item">
           <span class="contact-info-icon" aria-hidden="true">📍</span>

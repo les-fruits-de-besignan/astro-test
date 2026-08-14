@@ -6,6 +6,7 @@
 const phoneE164 = "+33674909671";
 
 export const farmContact = {
+  email: "gaecduvieuxchateau@gmail.com",
   phone: "+33 6 74 90 96 71",
   phoneE164,
   phoneHref: `tel:${phoneE164}`,

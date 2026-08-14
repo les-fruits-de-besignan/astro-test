@@ -42,6 +42,38 @@
 	border-radius: 4px;
 }
 
+/* Trade entry point — quiet on purpose. It must be findable by the shopkeeper
+   looking for it, without competing with the retail invitation above. */
+.footer-pro {
+	margin: 0 0 1.25rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	font-size: 0.9rem;
+}
+
+.footer-pro-question {
+	color: rgba(255, 255, 255, 0.8);
+	margin-right: 0.4rem;
+}
+
+.footer-pro a {
+	color: var(--color-white);
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.footer-pro a:hover {
+	text-decoration: none;
+}
+
+/* The global focus ring is brand green — invisible on this green field. */
+.footer-pro a:focus-visible {
+	outline: 3px solid var(--color-white);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
 .footer-copyright {
 	font-size: 0.9rem;
 	color: var(--color-white);
