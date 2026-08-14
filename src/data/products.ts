@@ -42,7 +42,7 @@ export const productCatalog: ProductCategory[] = [
           { fr: "Abricots — juin / juillet", en: "Apricots — June / July" },
           { fr: "Prunes reine-claude — août / septembre", en: "Reine-claude plums — August / September" },
           { fr: "Poires — septembre", en: "Pears — September" },
-          { fr: "Coings — octobre", en: "Quinces — October" },
+          { fr: "Coings — septembre", en: "Quinces — September" },
         ],
       },
       {
@@ -84,8 +84,8 @@ export const productCatalog: ProductCategory[] = [
         slug: "amandes",
         name: { fr: "Amandes & Amandons", en: "Almonds" },
         description: {
-          fr: "En coques ou en sachet d'amandons.",
-          en: "In shells or as shelled almonds.",
+          fr: "En coques ou en sachet d'amandons. Récoltées en septembre, disponibles toute l'année.",
+          en: "In shells or as shelled almonds. Harvested in September, available all year round.",
         },
         imageUrl: "https://res.cloudinary.com/duksfvujv/image/upload/v1696661771/almonds_o2ulpu.jpg",
         imageAlt: { fr: "Amandes et Amandons", en: "Almonds" },
