@@ -12,6 +12,10 @@ interface Props {
 const { lang } = Astro.props;
 const tr = t(lang).contact;
 
+// Netlify redirects here after a form post the inline script did not intercept.
+// Must stay in the visitor's language: "/success" or "/en/success".
+const successPath = `${t(lang).layout.canonicalPath}success`;
+
 // Single source of truth: the order checkboxes mirror the real product catalog,
 // and their `value` (slug) matches the `data-product` on each product CTA.
 const orderableProducts = productCatalog.flatMap((category) => category.products);
@@ -59,7 +63,7 @@ const orderableProducts = productCatalog.flatMap((category) => category.products
           netlify-honeypot="bot-field"
           name="commande"
           method="POST"
-          action="/success"
+          action={successPath}
         >
           <input type="hidden" name="form-name" value="commande" />
           <input type="hidden" name="bot-field" />

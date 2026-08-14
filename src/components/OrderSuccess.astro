@@ -1,0 +1,32 @@
+---
+// Where Netlify lands a visitor after a form post that the inline script did not
+// intercept — no JavaScript, or a script that failed to load. Without this page
+// a customer whose order went through would see a 404 and assume it did not.
+import '../styles/global.css';
+import '../styles/OrderSuccess.css';
+import type { Lang } from '../locales';
+import { t } from '../locales';
+import { farmContact } from '../data/contact';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const homePath = tr.layout.canonicalPath;
+---
+<main class="order-success">
+  <div class="order-success-card">
+    <span class="order-success-icon" aria-hidden="true">✓</span>
+    <h1>{tr.contact.formStatus.successTitle}</h1>
+    <p>{tr.contact.formStatus.successBody}</p>
+
+    <p class="order-success-reach">
+      {tr.contact.phoneAriaLabel}
+      <a href={farmContact.phoneHref}>{farmContact.phone}</a>
+    </p>
+
+    <a class="primary-button" href={homePath}>{tr.successPage.backHome}</a>
+  </div>
+</main>

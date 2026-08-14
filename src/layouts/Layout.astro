@@ -2,16 +2,23 @@
 import type { Lang } from '../locales';
 import { t } from '../locales';
 import { farmContact } from '../data/contact';
+import { cloudinary, OG_IMAGE } from '../lib/images';
 
 interface Props {
   lang: Lang;
+  /** Dead-end pages (order confirmation) that must stay out of search results. */
+  noindex?: boolean;
 }
 
-const { lang } = Astro.props;
+const { lang, noindex = false } = Astro.props;
 const tr = t(lang);
 
 const SITE_URL = 'https://www.lesfruitsdebesignan.com';
-const ogImage = 'https://res.cloudinary.com/dgkrgabdc/image/upload/v1759491963/IMG_5966_t9wfap.jpg';
+// Cropped to the 1200×630 the og:image:width/height tags below actually declare.
+const ogImage = cloudinary(
+  'https://res.cloudinary.com/dgkrgabdc/image/upload/v1759491963/IMG_5966_t9wfap.jpg',
+  OG_IMAGE,
+);
 const canonicalUrl = `${SITE_URL}${tr.layout.canonicalPath}`;
 
 const jsonLd = {
@@ -57,7 +64,9 @@ const jsonLd = {
 
     <title>{tr.layout.title}</title>
     <meta name="description" content={tr.layout.description} />
-    <link rel="canonical" href={canonicalUrl} />
+    {noindex
+      ? <meta name="robots" content="noindex, follow" />
+      : <link rel="canonical" href={canonicalUrl} />}
 
     <!-- hreflang pour le SEO bilingue -->
     <link rel="alternate" hreflang="fr" href={SITE_URL + "/"} />
@@ -83,9 +92,11 @@ const jsonLd = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.svg" sizes="any" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" />
+    <!-- Fonts are self-hosted (see the @font-face rules in styles/global.css).
+         Preloading the two latin subsets the site actually renders means text
+         paints without a second round-trip. -->
+    <link rel="preload" href="/fonts/noto-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dancing-script-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 

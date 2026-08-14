@@ -3,6 +3,7 @@ import '../styles/Products.css';
 import type { Lang } from '../locales';
 import { t } from '../locales';
 import { productCatalog } from '../data/products';
+import { cloudinary, PRODUCT_CARD } from '../lib/images';
 
 interface Props {
   lang: Lang;
@@ -33,7 +34,13 @@ function formatPrice(amount: number): string {
           {category.products.map((product) => (
             <div class="product-card">
               <div class="product-image-wrap">
-                <img class="product-image" src={product.imageUrl} alt={product.imageAlt[lang]} />
+                <img
+                  class="product-image"
+                  src={cloudinary(product.imageUrl, PRODUCT_CARD)}
+                  alt={product.imageAlt[lang]}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="product-body">
                 <h4 class="product-title">{product.name[lang]}</h4>

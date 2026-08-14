@@ -83,6 +83,7 @@ type Translations = {
       retry: string;
     };
   };
+  successPage: { backHome: string };
   footer: { signoff: string; rights: string };
 };
 
@@ -185,6 +186,7 @@ const locales: Record<Lang, Translations> = {
         retry: "Réessayer",
       },
     },
+    successPage: { backHome: "Retour à l'accueil" },
     footer: {
       signoff: "À bientôt à la ferme ou sur les marchés",
       rights: "Tous droits réservés.",
@@ -284,6 +286,7 @@ const locales: Record<Lang, Translations> = {
         retry: "Try again",
       },
     },
+    successPage: { backHome: "Back to home" },
     footer: {
       signoff: "See you at the farm or at the markets",
       rights: "All rights reserved.",

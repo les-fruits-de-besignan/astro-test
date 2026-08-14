@@ -9,7 +9,11 @@ export default defineConfig({
   site: SITE_URL,
   integrations: [
     react(),
-    sitemap(),
+    // The order-confirmation pages are dead ends reached only after a form post —
+    // they have nothing to rank for and would dilute the sitemap.
+    sitemap({
+      filter: (page) => !page.includes('/success'),
+    }),
   ],
   i18n: {
     defaultLocale: 'fr',

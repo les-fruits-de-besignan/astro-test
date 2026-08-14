@@ -6,10 +6,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Largest element on the page, so it decides the LCP. The f_auto,q_auto segment
+     lets Cloudinary serve WebP at the width actually needed. */
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url(https://res.cloudinary.com/dgkrgabdc/image/upload/v1759491963/IMG_5966_t9wfap.jpg);
+    url(https://res.cloudinary.com/dgkrgabdc/image/upload/f_auto,q_auto,w_1920/v1759491963/IMG_5966_t9wfap.jpg);
   background-position: center;
   background-size: cover;
+}
+
+/* Phones never need the 1920px crop — this is the request that decides whether
+   the page feels instant on rural 4G. */
+@media screen and (max-width: 900px) {
+  #hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(https://res.cloudinary.com/dgkrgabdc/image/upload/f_auto,q_auto,w_900/v1759491963/IMG_5966_t9wfap.jpg);
+  }
 }
 
 .hero-content {

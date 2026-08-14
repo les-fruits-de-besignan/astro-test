@@ -3,6 +3,12 @@ import '../styles/SeasonOffer.css';
 import type { Lang } from '../locales';
 import { t } from '../locales';
 import { seasonalItems } from '../data/seasonality';
+import { cloudinary, SEASON_BANNER } from '../lib/images';
+
+const bannerUrl = cloudinary(
+  'https://res.cloudinary.com/dgkrgabdc/image/upload/v1759602173/Capture_d_e%CC%81cran_2025-10-04_a%CC%80_20.22.23_xyyquj.png',
+  SEASON_BANNER,
+);
 
 interface Props {
   lang: Lang;
@@ -16,8 +22,10 @@ const tr = t(lang);
     <h2 class="section-title">{tr.seasonOffer.title}</h2>
     <figure class="season-banner">
       <img
-        src="https://res.cloudinary.com/dgkrgabdc/image/upload/v1759602173/Capture_d_e%CC%81cran_2025-10-04_a%CC%80_20.22.23_xyyquj.png"
+        src={bannerUrl}
         alt="Panier de fruits frais de la ferme du GAEC du vieux château à Bésignan"
+        loading="lazy"
+        decoding="async"
       />
     </figure>
     <ol class="season-track">
