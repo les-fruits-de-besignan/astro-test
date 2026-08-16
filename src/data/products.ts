@@ -10,8 +10,11 @@ export type Product = {
   slug: string;
   name: LocaleString;
   description: LocaleString;
-  imageUrl: string;
-  imageAlt: LocaleString;
+  // Optional: a product awaiting its photo shows a plain tinted panel rather
+  // than borrowing another product's image. Add the raw Cloudinary URL here and
+  // the card picks it up — `cloudinary()` handles the crop and compression.
+  imageUrl?: string;
+  imageAlt?: LocaleString;
   prices: Price[];
   seasonItems?: LocaleString[];
 };
@@ -46,18 +49,29 @@ export const productCatalog: ProductCategory[] = [
         ],
       },
       {
-        slug: "confitures-sirops",
-        name: { fr: "Confitures & Sirops", en: "Jams & Syrups" },
+        slug: "confitures",
+        name: { fr: "Confitures", en: "Jams" },
         description: {
-          fr: "Sirops : Cerise, Abricot, Coing ou Menthe.<br/>Confitures : Cerises, Abricot, Abricots-lavande, Poire-vanille-cannelle, Poires, Prunes ou Coings.",
-          en: "Syrups: Cherry, Apricot, Quince or Mint.<br/>Jams: Cherries, Apricot, Apricot-lavender, Pear-vanilla-cinnamon, Pears, Plums or Quinces.",
+          fr: "Cerises, Abricot, Abricots-lavande, Poire-vanille-cannelle, Poires, Prunes ou Coings.",
+          en: "Cherries, Apricot, Apricot-lavender, Pear-vanilla-cinnamon, Pears, Plums or Quinces.",
+        },
+        prices: [
+          { amount: 3.20, unit: { fr: "pot 200g", en: "200g jar" } },
+          // Le grand format n'existe qu'en coing pour l'instant.
+          { prefix: { fr: "Coing grand format", en: "Quince, large format" }, amount: 4.50, unit: { fr: "pot 330g", en: "330g jar" } },
+        ],
+      },
+      {
+        slug: "sirops",
+        name: { fr: "Sirops", en: "Syrups" },
+        description: {
+          fr: "Cerise, Abricot, Coing ou Menthe.",
+          en: "Cherry, Apricot, Quince or Mint.",
         },
         imageUrl: "https://res.cloudinary.com/dgkrgabdc/image/upload/v1751127326/sirop.png",
-        imageAlt: { fr: "Confitures et Sirops", en: "Jams and Syrups" },
+        imageAlt: { fr: "Sirops de la ferme", en: "Farm syrups" },
         prices: [
-          { prefix: { fr: "Sirops", en: "Syrups" }, amount: 4.10, unit: { fr: "bouteille 50cl", en: "50cl bottle" } },
-          { prefix: { fr: "Confitures", en: "Jams" }, amount: 3.20, unit: { fr: "pot 200g", en: "200g jar" } },
-          { prefix: { fr: "[Grand format] coing", en: "[Large format] quince" }, amount: 6.00, unit: { fr: "pot 330g", en: "330g jar" } },
+          { amount: 4.10, unit: { fr: "bouteille 50cl", en: "50cl bottle" } },
         ],
       },
       {
@@ -93,6 +107,29 @@ export const productCatalog: ProductCategory[] = [
           { prefix: { fr: "Coques", en: "In shells" }, amount: 6.00, unit: { fr: "kg", en: "kg" } },
           { prefix: { fr: "Amandons", en: "Shelled" }, amount: 4.50, unit: { fr: "sachet 200g", en: "200g bag" } },
           { prefix: { fr: "Amandons", en: "Shelled" }, amount: 11.00, unit: { fr: "sachet 500g", en: "500g bag" } },
+        ],
+      },
+      {
+        slug: "nougat",
+        name: { fr: "Nougat", en: "Nougat" },
+        description: {
+          fr: "Nougat artisanal, préparé avec les amandes et le miel de lavande de la ferme.",
+          en: "Artisan nougat, made with the farm's own almonds and lavender honey.",
+        },
+        prices: [
+          { amount: 6.00, unit: { fr: "barre 100g", en: "100g bar" } },
+          { amount: 8.50, unit: { fr: "barre 150g", en: "150g bar" } },
+        ],
+      },
+      {
+        slug: "barres-cereales",
+        name: { fr: "Barres de céréales", en: "Cereal Bars" },
+        description: {
+          fr: "Amandes, petit épeautre et miel de lavande.",
+          en: "Almonds, einkorn wheat and lavender honey.",
+        },
+        prices: [
+          { amount: 2.95, unit: { fr: "l'unité", en: "each" } },
         ],
       },
       {
