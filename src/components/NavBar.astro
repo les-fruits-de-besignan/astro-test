@@ -2,7 +2,7 @@
 import '../styles/NavBar.css';
 import type { Lang } from '../locales';
 import { t } from '../locales';
-import LangToggle from './LangToggle.tsx';
+import LangToggle from './LangToggle.astro';
 
 interface Props {
   lang: Lang;
@@ -20,7 +20,7 @@ const tr = t(lang);
       <a href="#Seasonnal">{tr.nav.season}</a>
       <a href="#avantages">{tr.nav.benefits}</a>
       <a href="#contact" class="cta-button">{tr.nav.order}</a>
-      <LangToggle lang={lang} client:load />
+      <LangToggle lang={lang} />
     </div>
   </div>
 </nav>

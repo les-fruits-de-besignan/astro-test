@@ -1,0 +1,67 @@
+---
+import type { Lang } from '../locales';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const options: { code: Lang; label: string; flag: string; href: string }[] = [
+  { code: 'fr', label: 'FR', flag: '🇫🇷', href: '/' },
+  { code: 'en', label: 'EN', flag: '🇬🇧', href: '/en/' },
+];
+const current = options.find((o) => o.code === lang)!;
+const triggerLabel = lang === 'fr' ? `Langue : ${current.label}` : `Language: ${current.label}`;
+---
+<div class="lang-dropdown">
+  <button
+    type="button"
+    class="lang-trigger"
+    aria-expanded="false"
+    aria-controls="lang-menu"
+    aria-label={triggerLabel}
+  >
+    <span class="lang-flag" aria-hidden="true">{current.flag}</span>
+  </button>
+
+  <div class="lang-menu" id="lang-menu" hidden>
+    {options.map((option) => (
+      <a
+        href={option.href}
+        hreflang={option.code}
+        class:list={['lang-option', { 'lang-option--active': option.code === lang }]}
+        aria-current={option.code === lang ? 'page' : undefined}
+      >
+        <span class="lang-check" aria-hidden="true">{option.code === lang ? '✓' : ''}</span>
+        <span class="lang-flag" aria-hidden="true">{option.flag}</span>
+        <span class="lang-label">{option.label}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  // Disclosure menu: the button toggles the list; outside click or Escape closes it.
+  const dropdown = document.querySelector<HTMLElement>('.lang-dropdown');
+  const trigger = dropdown?.querySelector<HTMLButtonElement>('.lang-trigger');
+  const menu = dropdown?.querySelector<HTMLElement>('.lang-menu');
+
+  if (dropdown && trigger && menu) {
+    const setOpen = (open: boolean) => {
+      menu.hidden = !open;
+      trigger.setAttribute('aria-expanded', String(open));
+    };
+
+    trigger.addEventListener('click', () => setOpen(menu.hidden));
+    document.addEventListener('mousedown', (e) => {
+      if (!dropdown.contains(e.target as Node)) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) {
+        setOpen(false);
+        trigger.focus();
+      }
+    });
+  }
+</script>

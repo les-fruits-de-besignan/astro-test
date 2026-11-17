@@ -28,6 +28,6 @@ This is a single-page marketing website in French for "Les fruits de Bésignan" 
 
 **Images.** All photos are on Cloudinary and must be requested through `cloudinary()` in `src/lib/images.ts`, which inserts an `f_auto,q_auto,c_fill,…` transform so the CDN serves WebP cropped to the displayed box. Crop presets mirror the CSS heights — keep them in step. Below-the-fold images carry `loading="lazy"`. The hero is a CSS `background-image` in `Hero.css` with a separate mobile crop; it is the LCP element.
 
-**React integration.** `@astrojs/react` is configured but no React components exist yet. Interactive islands can be added by creating `.tsx` files and using `client:*` directives.
+**No UI framework, no client bundle.** Interactivity is plain `<script>` tags inside `.astro` components (the language dropdown in `LangToggle.astro`, the form in `Contact.astro`). React was removed because it shipped ~57 KB gzip for a two-link menu — don't reintroduce a framework for small widgets.
 
 **Layout.** `src/layouts/Layout.astro` is a minimal HTML shell (`lang="fr-FR"`, meta description, title). All visible content lives in components.
