@@ -138,3 +138,6 @@ dist
 # Impeccable skill (installed/reinstallable via `npx impeccable skills install`)
 .claude/skills/
 .cursor/skills/
+
+# Astro generated types and cache (recreated by astro dev/build/sync)
+.astro/
