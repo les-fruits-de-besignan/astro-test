@@ -14,4 +14,10 @@ export const farmContact = {
   // lives in data/markets.ts ("À la ferme") — keep the two in step.
   opens: "08:00",
   closes: "19:00",
+  // The farm's Google Business Profile. Listed in the structured data so Google
+  // ties the site and the Maps listing to the same business; the coordinates are
+  // the listing's pin, so both agree on where the farm is.
+  googleMapsUrl: "https://maps.app.goo.gl/gyigh8aNpba6z2bc9",
+  latitude: 44.3221,
+  longitude: 5.325,
 } as const;

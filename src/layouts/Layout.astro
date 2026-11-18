@@ -50,10 +50,14 @@ const jsonLd = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 44.327,
-    "longitude": 5.335
+    "latitude": farmContact.latitude,
+    "longitude": farmContact.longitude
   },
-  "sameAs": ["https://www.instagram.com/les_fruits_de_besignan_/"],
+  "hasMap": farmContact.googleMapsUrl,
+  "sameAs": [
+    "https://www.instagram.com/les_fruits_de_besignan_/",
+    farmContact.googleMapsUrl,
+  ],
 };
 ---
 <!doctype html>
